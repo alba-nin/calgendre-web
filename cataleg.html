@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html lang="ca">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Catàleg · Cal Gendre 1879</title>
+<meta name="description" content="Consulta els llibres que tenim a Cal Gendre i reserva'ls per recollir a la llibreria.">
+<link rel="icon" type="image/png" href="img/favicon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Libre+Caslon+Display&family=Libre+Caslon+Text:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+<style>
+  :root{--marro:#5a2e0c;--marro-fosc:#3b1d07;--crema:#f4ecdf;--paper:#fbf8f2;--tinta:#2a1708;--lila:#9b55b8;--verd:#4f7a3a;--max:1180px}
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{font-family:"Libre Caslon Text",Georgia,serif;color:var(--tinta);background:var(--crema);line-height:1.5;font-size:17px}
+  a{color:inherit}
+  button,input,select{font:inherit;color:inherit}
+  .wrap{max-width:var(--max);margin:0 auto;padding:0 24px}
+  h1,h2,h3{font-family:"Libre Caslon Display",Georgia,serif;font-weight:400;line-height:1.05}
+
+  header{position:sticky;top:0;z-index:30;background:rgba(244,236,223,.95);backdrop-filter:blur(6px);border-bottom:1px solid rgba(90,46,14,.15)}
+  .nav{display:flex;align-items:center;justify-content:space-between;height:68px;gap:16px}
+  .marca{display:flex;align-items:center;gap:12px;text-decoration:none;color:var(--marro)}
+  .marca img{height:30px;width:auto}
+  .marca span{font-family:"Libre Caslon Display",serif;font-size:22px;letter-spacing:.04em}
+  .tornar{font-size:14px;letter-spacing:.08em;text-transform:uppercase;color:var(--marro);text-decoration:none}
+  .btn-cistella{background:var(--marro);color:var(--crema);border:0;padding:10px 16px;cursor:pointer;font-size:14px;letter-spacing:.08em;text-transform:uppercase;display:flex;align-items:center;gap:8px}
+  .btn-cistella b{background:var(--crema);color:var(--marro);border-radius:20px;min-width:22px;padding:0 6px;font-size:13px}
+
+  .cap{background:var(--marro);color:var(--crema);padding:56px 0 64px}
+  .cap h1{font-size:clamp(48px,9vw,96px);text-transform:uppercase}
+  .cap p{margin-top:12px;font-style:italic;opacity:.85;max-width:620px}
+  .avis-demo{display:inline-block;margin-top:16px;background:var(--lila);color:#fff;font-size:13px;letter-spacing:.1em;text-transform:uppercase;padding:4px 10px}
+
+  .eines{position:sticky;top:68px;z-index:20;background:var(--crema);padding:18px 0 12px;border-bottom:1px solid rgba(90,46,14,.12)}
+  .cerca{display:flex;gap:12px;flex-wrap:wrap;align-items:center}
+  .cerca input[type=search]{flex:1 1 300px;padding:13px 16px;border:1px solid rgba(90,46,14,.35);background:var(--paper);font-size:17px}
+  .cerca input:focus{outline:2px solid var(--marro);outline-offset:1px}
+  .cerca select{padding:12px;border:1px solid rgba(90,46,14,.35);background:var(--paper)}
+  .cerca label{font-size:15px;display:flex;align-items:center;gap:6px;cursor:pointer}
+  .xips{display:flex;gap:8px;flex-wrap:wrap;margin-top:14px}
+  .xip{border:1px solid var(--marro);background:transparent;color:var(--marro);padding:5px 12px;font-size:14px;cursor:pointer}
+  .xip.actiu{background:var(--marro);color:var(--crema)}
+  .recompte{font-size:14px;font-style:italic;color:#6d4a2d;margin:22px 0 10px}
+
+  .graella{display:grid;grid-template-columns:repeat(auto-fill,minmax(190px,1fr));gap:28px 22px;padding-bottom:70px}
+  .llibre{display:flex;flex-direction:column}
+  .portada{aspect-ratio:2/3;position:relative;padding:18px 14px;display:flex;flex-direction:column;justify-content:space-between;color:#fff;box-shadow:0 8px 18px rgba(59,29,7,.2), inset 6px 0 0 rgba(0,0,0,.12);overflow:hidden}
+  .portada img.foto{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+  .portada .t{padding-right:30px;font-family:"Libre Caslon Display",serif;font-size:21px;line-height:1.1}
+  .portada .a{font-size:13px;letter-spacing:.06em;text-transform:uppercase;opacity:.9}
+  .portada .ed{font-size:11px;letter-spacing:.12em;text-transform:uppercase;opacity:.7}
+  .etiqueta{position:absolute;top:10px;right:-30px;transform:rotate(35deg);background:var(--lila);color:#fff;font-size:11px;letter-spacing:.1em;text-transform:uppercase;padding:3px 34px}
+  .info{padding-top:12px;flex:1;display:flex;flex-direction:column}
+  .info h3{font-size:19px}
+  .info .autor{font-size:15px;color:#6d4a2d;font-style:italic}
+  .info .meta{font-size:13px;color:#7c6450;margin-top:2px}
+  .peu{display:flex;justify-content:space-between;align-items:center;margin-top:auto;padding-top:10px;gap:8px}
+  .preu{font-family:"Libre Caslon Display",serif;font-size:22px;color:var(--marro)}
+  .estoc{font-size:12px;letter-spacing:.06em;text-transform:uppercase}
+  .estoc.si{color:var(--verd)}.estoc.ultim{color:#b2581f}.estoc.no{color:#7c6450}
+  .afegir{margin-top:10px;width:100%;border:1px solid var(--marro);background:transparent;color:var(--marro);padding:9px;cursor:pointer;font-size:13px;letter-spacing:.08em;text-transform:uppercase}
+  .afegir:hover{background:var(--marro);color:var(--crema)}
+  .afegir.dins{background:var(--marro);color:var(--crema)}
+  .buit{grid-column:1/-1;text-align:center;padding:50px 0;font-style:italic}
+
+  .encarrec{background:var(--paper);padding:60px 0;text-align:center}
+  .encarrec h2{font-size:clamp(32px,5vw,50px);color:var(--marro);text-transform:uppercase}
+  .encarrec p{max-width:600px;margin:12px auto 22px}
+  .boto{display:inline-block;text-decoration:none;border:1px solid var(--marro);padding:12px 20px;font-size:14px;letter-spacing:.1em;text-transform:uppercase;background:var(--marro);color:var(--crema);cursor:pointer}
+  .boto.buit2{background:transparent;color:var(--marro)}
+
+  /* Cistella */
+  .velo{position:fixed;inset:0;background:rgba(42,23,8,.45);opacity:0;pointer-events:none;transition:.25s;z-index:40}
+  .calaix{position:fixed;top:0;right:0;height:100%;width:min(430px,100%);background:var(--paper);z-index:50;transform:translateX(100%);transition:transform .3s;display:flex;flex-direction:column}
+  body.obert .calaix{box-shadow:-10px 0 30px rgba(0,0,0,.2)}
+  body.obert .velo{opacity:1;pointer-events:auto}
+  body.obert .calaix{transform:none}
+  .calaix header{position:static;display:flex;justify-content:space-between;align-items:center;padding:20px 24px;background:var(--marro);color:var(--crema);border:0}
+  .calaix header h2{font-size:30px}
+  .tancar{background:none;border:0;color:var(--crema);font-size:28px;cursor:pointer;line-height:1}
+  .linies{flex:1;overflow:auto;padding:10px 24px}
+  .linia{display:flex;justify-content:space-between;gap:12px;padding:14px 0;border-bottom:1px dotted rgba(90,46,14,.3)}
+  .linia small{display:block;color:#6d4a2d;font-style:italic}
+  .linia button{background:none;border:0;color:#a0522d;cursor:pointer;font-size:13px;text-decoration:underline}
+  .calaix .form{padding:18px 24px 26px;border-top:1px solid rgba(90,46,14,.2)}
+  .total{display:flex;justify-content:space-between;font-family:"Libre Caslon Display",serif;font-size:22px;margin-bottom:12px}
+  .calaix input{width:100%;padding:11px 12px;border:1px solid rgba(90,46,14,.35);background:#fff;margin-bottom:10px}
+  .calaix .accions{display:grid;gap:8px}
+  .calaix .accions .boto{text-align:center}
+  .nota{font-size:13px;color:#6d4a2d;margin-top:10px;font-style:italic}
+  .toast{position:fixed;bottom:24px;left:50%;transform:translateX(-50%) translateY(20px);background:var(--marro-fosc);color:var(--crema);padding:12px 20px;font-size:15px;opacity:0;transition:.25s;z-index:60;pointer-events:none}
+  .toast.vist{opacity:1;transform:translateX(-50%)}
+
+
+  /* Pròximament */
+  .avis-aviat{display:none}
+  body.aviat .eines,body.aviat .avis-demo,body.aviat #obrirCistella,body.aviat .recompte{display:none}
+  body.aviat main{position:relative;max-height:620px;overflow:hidden}
+  body.aviat .graella{filter:blur(6px);opacity:.5;pointer-events:none;user-select:none;padding-top:40px}
+  body.aviat .avis-aviat{display:flex;flex-direction:column;align-items:center;justify-content:center;position:absolute;inset:0;z-index:5;text-align:center;padding:0 20px;
+    background:linear-gradient(rgba(244,236,223,0) 0%,rgba(244,236,223,.6) 100%)}
+  .avis-aviat .segell{background:var(--lila);color:#fff;font-family:"Libre Caslon Display",serif;text-transform:uppercase;
+    font-size:clamp(42px,8vw,96px);letter-spacing:.04em;padding:10px 60px 14px;transform:rotate(-8deg);box-shadow:0 14px 30px rgba(59,29,7,.25)}
+  .avis-aviat p{margin-top:40px;max-width:560px;font-size:19px;background:var(--paper);padding:18px 24px;box-shadow:0 8px 20px rgba(59,29,7,.12)}
+
+  footer{background:var(--marro-fosc);color:rgba(244,236,223,.75);text-align:center;padding:40px 0;font-size:15px}
+
+  @media (max-width:700px){
+    .graella{grid-template-columns:repeat(2,1fr);gap:22px 14px}
+    .portada .t{font-size:17px}
+    .tornar{display:none}
+    .marca img{height:22px}
+    .eines{position:static}
+    .avis-aviat .segell{font-size:34px;padding:8px 24px 10px}
+    .xips{flex-wrap:nowrap;overflow-x:auto;padding-bottom:4px}
+    .xip{white-space:nowrap}
+    .cerca select{flex:1}
+  }
+</style>
+</head>
+<body class="aviat"><!-- treu class="aviat" quan el catàleg estigui a punt -->
+
+<header>
+  <div class="wrap nav">
+    <a class="marca" href="index.html"><img src="img/wordmark_marro.png" alt="Cal Gendre 1879"></a>
+    <a class="tornar" href="index.html">← Tornar a l'inici</a>
+    <button class="btn-cistella" id="obrirCistella">Reserva <b id="numCistella">0</b></button>
+  </div>
+</header>
+
+<section class="cap">
+  <div class="wrap">
+    <h1>Catàleg</h1>
+    <p>Busca què tenim a les prestatgeries, afegeix-ho a la reserva i t'ho guardem perquè ho passis a buscar per la llibreria.</p>
+    <span class="avis-demo">Versió de prova · llibres i preus d'exemple</span>
+    <p style="margin-top:14px;font-style:normal;font-size:15px">Estoc en temps real a <a id="ttlLink2" href="https://www.todostuslibros.com" target="_blank" rel="noopener" style="color:#fff;font-weight:700">todostuslibros.com →</a></p>
+  </div>
+</section>
+
+<section class="eines">
+  <div class="wrap">
+    <div class="cerca">
+      <input type="search" id="q" placeholder="Títol, autor, editorial o ISBN…" aria-label="Cerca">
+      <select id="ordre" aria-label="Ordena">
+        <option value="novetat">Novetats primer</option>
+        <option value="titol">Títol (A–Z)</option>
+        <option value="autor">Autor (A–Z)</option>
+        <option value="preu">Preu (de menys a més)</option>
+      </select>
+      <label><input type="checkbox" id="nomesEstoc"> Només en estoc</label>
+    </div>
+    <div class="xips" id="xips"></div>
+  </div>
+</section>
+
+<main class="wrap">
+  <div class="avis-aviat">
+    <div class="segell">Pròximament</div>
+    <p>Estem preparant el catàleg en línia. Mentrestant, vine a remenar a la llibreria o encarrega'ns el llibre que busques: te'l fem arribar en pocs dies.</p>
+  </div>
+  <p class="recompte" id="recompte"></p>
+  <div class="graella" id="graella"></div>
+</main>
+
+<section class="encarrec">
+  <div class="wrap">
+    <h2>No el trobes?</h2>
+    <p>Si el llibre que busques no hi és, te l'encarreguem. Normalment arriba en pocs dies.</p>
+    <a class="boto" id="btnEncarrec" href="#" target="_blank" rel="noopener">Encarrega un llibre</a>
+    <p id="ttl" style="margin-top:26px;font-size:16px">També pots consultar el nostre estoc a <a id="ttlLink" href="https://www.todostuslibros.com" target="_blank" rel="noopener"><b>todostuslibros.com</b></a>, la web de les llibreries independents.</p>
+  </div>
+</section>
+
+<footer><img src="img/logo_adreca_crema.png" alt="Cal Gendre 1879 · Plaça de Pau Casals · Santa Margarida i els Monjos" style="width:min(380px,80vw);margin:0 auto;display:block">
+<p style="margin-top:14px;font-size:13px"><a href="avis-legal.html" style="color:inherit">Avís legal i privacitat</a></p></footer>
+
+<div class="velo" id="velo"></div>
+<aside class="calaix" aria-label="La teva reserva">
+  <header><h2>La teva reserva</h2><button class="tancar" id="tancar" aria-label="Tanca">×</button></header>
+  <div class="linies" id="linies"></div>
+  <div class="form">
+    <div class="total"><span>Total</span><span id="total">0,00 €</span></div>
+    <input id="nom" placeholder="El teu nom" autocomplete="name">
+    <input id="tel" placeholder="Telèfon (opcional)" autocomplete="tel">
+    <div class="accions">
+      <a class="boto" id="enviarWA" href="#" target="_blank" rel="noopener">Envia la reserva per WhatsApp</a>
+      <a class="boto buit2" id="enviarMail" href="#">Envia-la per correu</a>
+      <button class="boto buit2" id="copiar">Copia el missatge</button>
+    </div>
+    <p class="nota">No es paga res ara: et confirmarem que el tenim guardat i el pagues quan el vinguis a buscar.</p>
+  </div>
+</aside>
+<div class="toast" id="toast"></div>
+
+<!-- ===== DADES =====
+  Opció A (recomanada): posa a FULL_CSV l'enllaç d'un Google Sheet publicat com a CSV
+     (Fitxer → Compartir → Publica al web → Full 1 → Valors separats per comes .csv).
+     La web el llegirà cada cop que algú l'obri.
+  Opció B: enganxa les dades aquí sota, amb les mateixes columnes.
+  Columnes: titol, autor, editorial, seccio, preu, estoc, isbn, novetat, portada
+     - estoc: nombre d'exemplars (0 = per encàrrec)
+     - novetat: "si" per marcar-lo com a novetat
+     - portada: (opcional) enllaç a una imatge. Si està buit, es genera una portada automàtica. -->
+<script type="text/csv" id="dadesCSV">
+titol,autor,editorial,seccio,preu,estoc,isbn,novetat,portada
+Plena de dons,Anna Gual i Jaume C. Pons Alorda,,Poesia,18.00,6,,si,
+Canto jo i la muntanya balla,Irene Solà,Anagrama,Narrativa,18.90,3,,,
+Et vaig donar ulls i vas mirar les tenebres,Irene Solà,Anagrama,Narrativa,19.90,4,,si,
+Permagel,Eva Baltasar,Club Editor,Narrativa,16.50,2,,,
+Boulder,Eva Baltasar,Club Editor,Narrativa,16.50,1,,,
+Mare de llet i mel,Najat El Hachmi,Edicions 62,Narrativa,19.50,2,,,
+Aprendre a parlar amb les plantes,Marta Orriols,Periscopi,Narrativa,18.50,0,,,
+Germà de gel,Alicia Kopf,L'Altra Editorial,Narrativa,19.90,1,,,
+Jo confesso,Jaume Cabré,Proa,Narrativa,24.90,2,,,
+La plaça del Diamant,Mercè Rodoreda,Club Editor,Clàssics,17.00,5,,,
+Incerta glòria,Joan Sales,Club Editor,Clàssics,24.50,1,,,
+Pedra de tartera,Maria Barbal,Edicions 62,Clàssics,15.90,3,,,
+Solitud,Víctor Català,Edicions 62,Clàssics,9.95,2,,,
+Mirall trencat,Mercè Rodoreda,Edicions 62,Clàssics,10.95,0,,,
+Estimada Marta,Miquel Martí i Pol,Edicions 62,Poesia,12.00,2,,,
+Llibre de meravelles,Vicent Andrés Estellés,Edicions 62,Poesia,14.50,1,,,
+Cau de llunes,Maria-Mercè Marçal,Proa,Poesia,13.90,0,,,
+Ciutat princesa,Marina Garcés,Galaxia Gutenberg,Assaig,17.50,2,,,
+La societat del cansament,Byung-Chul Han,Herder,Assaig,12.00,3,,,
+Nosaltres els valencians,Joan Fuster,Edicions 62,Assaig,14.95,1,,,
+El monstre de colors,Anna Llenas,Flamboyant,Infantil i juvenil,16.95,4,,,
+El Grúfal,Julia Donaldson i Axel Scheffler,Babulinka,Infantil i juvenil,14.90,3,,,
+L'Elmer,David McKee,Beascoa,Infantil i juvenil,13.95,2,,,
+Wonder,R. J. Palacio,La Campana,Infantil i juvenil,17.90,0,,,
+Tirant lo Blanc (2a mà),Joanot Martorell,Edicions 62,Segona mà,8.00,1,,,
+Bearn (2a mà),Llorenç Villalonga,Club Editor,Segona mà,6.00,1,,,
+La pell freda (2a mà),Albert Sánchez Piñol,La Campana,Segona mà,5.00,1,,,
+</script>
+
+<script>
+  /* ===== CONFIGURACIÓ ===== */
+  const FULL_CSV = "cataleg.csv";      // <- el fitxer que puja l'actualitzador (o l'enllaç CSV d'un Google Sheet). Si no hi és, fa servir les dades de dalt
+  const WHATSAPP = "34000000000";      // <- número de la llibreria, sense + ni espais
+  const EMAIL    = "hola@calgendre.cat";
+  const TODOSTUSLIBROS = "";           // <- enllaç a la fitxa de Cal Gendre a todostuslibros.com (quan estigui donada d'alta). Si és buit, l'enllaç va a la portada de todostuslibros.
+  if(TODOSTUSLIBROS){ document.getElementById("ttlLink").href=TODOSTUSLIBROS; document.getElementById("ttlLink2").href=TODOSTUSLIBROS; }
+
+  /* ---- lectura CSV (admet camps entre cometes) ---- */
+  function llegirCSV(text){
+    const files=[]; let fila=[], camp="", dins=false;
+    for(let i=0;i<text.length;i++){
+      const c=text[i];
+      if(dins){ if(c==='"'){ if(text[i+1]==='"'){camp+='"';i++;} else dins=false; } else camp+=c; }
+      else if(c==='"') dins=true;
+      else if(c===','){ fila.push(camp); camp=""; }
+      else if(c==='\n'||c==='\r'){ if(c==='\r'&&text[i+1]==='\n') i++; fila.push(camp); files.push(fila); fila=[]; camp=""; }
+      else camp+=c;
+    }
+    if(camp||fila.length){ fila.push(camp); files.push(fila); }
+    const net=files.filter(f=>f.some(x=>x.trim()));
+    const cap=net.shift().map(h=>h.trim().toLowerCase());
+    return net.map((f,i)=>{ const o={id:i}; cap.forEach((h,j)=>o[h]=(f[j]||"").trim());
+      o.preu=parseFloat((o.preu||"0").replace(",","."))||0; o.estoc=parseInt(o.estoc||"0")||0; o.novetat=/^(si|sí|x|1)$/i.test(o.novetat||""); return o; });
+  }
+
+  let LLIBRES=[], seccio="Totes";
+  const $=id=>document.getElementById(id);
+  const eur=n=>n.toFixed(2).replace(".",",")+" €";
+  const net=s=>(s||"").normalize("NFD").replace(/[̀-ͯ]/g,"").toLowerCase();
+  const esc=s=>(s||"").replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+
+  /* ---- portades generades ---- */
+  const COLORS=["#5a2e0c","#9b55b8","#b2581f","#4f7a3a","#2f4858","#8a6a3b","#7a2e3a","#3e5c76"];
+  function color(s){ let h=0; for(const c of s) h=(h*31+c.charCodeAt(0))>>>0; return COLORS[h%COLORS.length]; }
+  function portada(l){
+    const img=l.portada?`<img class="foto" src="${esc(l.portada)}" alt="" loading="lazy" onerror="this.remove()">`:"";
+    return `<div class="portada" style="background:${color(l.titol+l.autor)}">${img}
+      ${l.novetat?'<span class="etiqueta">Novetat</span>':""}
+      <div><div class="t">${esc(l.titol)}</div></div>
+      <div><div class="a">${esc(l.autor)}</div><div class="ed">${esc(l.editorial)}</div></div></div>`;
+  }
+  function estocHTML(n){
+    if(n<=0) return '<span class="estoc no">Per encàrrec</span>';
+    if(n===1) return '<span class="estoc ultim">Últim exemplar</span>';
+    return '<span class="estoc si">En estoc</span>';
+  }
+
+  /* ---- cistella ---- */
+  let cistella={};
+  try{ cistella=JSON.parse(localStorage.getItem("cg_reserva")||"{}"); }catch(e){}
+  const desar=()=>{ try{ localStorage.setItem("cg_reserva",JSON.stringify(cistella)); }catch(e){} };
+  const clau=l=>l.titol+"|"+l.autor;
+
+  function pintar(){
+    const q=net($("q").value), nomes=$("nomesEstoc").checked, ordre=$("ordre").value;
+    let r=LLIBRES.filter(l=>(seccio==="Totes"||(seccio==="Novetats"?l.novetat:l.seccio===seccio))
+      &&(!nomes||l.estoc>0)
+      &&(!q||net([l.titol,l.autor,l.editorial,l.isbn].join(" ")).includes(q)));
+    const cmp={titol:(a,b)=>a.titol.localeCompare(b.titol,"ca"),autor:(a,b)=>a.autor.localeCompare(b.autor,"ca"),
+      preu:(a,b)=>a.preu-b.preu,novetat:(a,b)=>(b.novetat-a.novetat)||((b.estoc>0)-(a.estoc>0))||a.titol.localeCompare(b.titol,"ca")};
+    r.sort(cmp[ordre]);
+    $("recompte").textContent=`${r.length} ${r.length===1?"llibre":"llibres"}${$("recompte").dataset.info||""}`;
+    $("graella").innerHTML=r.length?r.map(l=>{
+      const k=clau(l), dins=!!cistella[k];
+      return `<article class="llibre">${portada(l)}
+        <div class="info"><h3>${esc(l.titol)}</h3><div class="autor">${esc(l.autor)}</div>
+        <div class="meta">${[l.editorial,l.isbn].filter(Boolean).map(esc).join(" · ")}</div>
+        <div class="peu"><span class="preu">${eur(l.preu)}</span>${estocHTML(l.estoc)}</div>
+        <button class="afegir${dins?" dins":""}" data-id="${l.id}">${dins?"✓ A la reserva":(l.estoc>0?"Reserva'l":"Encarrega'l")}</button></div></article>`;
+    }).join(""):'<p class="buit">No hem trobat res. Prova una altra cerca o encarrega\'ns-el!</p>';
+  }
+
+  function pintarCistella(){
+    const items=Object.values(cistella);
+    $("numCistella").textContent=items.length;
+    $("linies").innerHTML=items.length?items.map(l=>`<div class="linia"><div>${esc(l.titol)}<small>${esc(l.autor)} · ${l.estoc>0?"en estoc":"per encàrrec"}</small></div>
+      <div style="text-align:right">${eur(l.preu)}<br><button data-treu="${esc(clau(l))}">Treu</button></div></div>`).join("")
+      :'<p class="nota" style="padding:20px 0">Encara no has afegit cap llibre.</p>';
+    $("total").textContent=eur(items.reduce((s,l)=>s+l.preu,0));
+    const msg=missatge();
+    $("enviarWA").href=`https://wa.me/${WHATSAPP}?text=${encodeURIComponent(msg)}`;
+    $("enviarMail").href=`mailto:${EMAIL}?subject=${encodeURIComponent("Reserva de llibres")}&body=${encodeURIComponent(msg)}`;
+  }
+  function missatge(){
+    const items=Object.values(cistella), nom=$("nom").value.trim(), tel=$("tel").value.trim();
+    return `Hola Cal Gendre! M'agradaria reservar:\n`+items.map(l=>`- ${l.titol} (${l.autor})${l.estoc>0?"":" [per encàrrec]"}`).join("\n")+
+      `\n\nNom: ${nom||"…"}${tel?"\nTelèfon: "+tel:""}\nGràcies!`;
+  }
+  function toast(t){ const el=$("toast"); el.textContent=t; el.classList.add("vist"); clearTimeout(toast.t); toast.t=setTimeout(()=>el.classList.remove("vist"),2200); }
+
+  $("graella").addEventListener("click",e=>{
+    const b=e.target.closest(".afegir"); if(!b) return;
+    const l=LLIBRES[+b.dataset.id], k=clau(l);
+    if(cistella[k]){ delete cistella[k]; } else { cistella[k]={titol:l.titol,autor:l.autor,preu:l.preu,estoc:l.estoc}; toast("Afegit a la reserva"); }
+    desar(); pintar(); pintarCistella();
+  });
+  $("linies").addEventListener("click",e=>{ const k=e.target.dataset.treu; if(k){ delete cistella[k]; desar(); pintar(); pintarCistella(); }});
+  ["nom","tel"].forEach(id=>$(id).addEventListener("input",pintarCistella));
+  ["q","ordre","nomesEstoc"].forEach(id=>$(id).addEventListener("input",pintar));
+  const obrir=()=>document.body.classList.add("obert"), tancar=()=>document.body.classList.remove("obert");
+  $("obrirCistella").onclick=obrir; $("tancar").onclick=tancar; $("velo").onclick=tancar;
+  document.addEventListener("keydown",e=>{ if(e.key==="Escape") tancar(); });
+  $("copiar").onclick=async()=>{ try{ await navigator.clipboard.writeText(missatge()); toast("Missatge copiat"); }catch(e){ toast("No s'ha pogut copiar"); } };
+  [$("enviarWA"),$("enviarMail")].forEach(a=>a.addEventListener("click",e=>{ if(!Object.keys(cistella).length){ e.preventDefault(); toast("Afegeix algun llibre primer"); }}));
+  $("btnEncarrec").href=`https://wa.me/${WHATSAPP}?text=${encodeURIComponent("Hola Cal Gendre! M'agradaria encarregar aquest llibre:\nTítol: \nAutor: \nNom: ")}`;
+
+  function xips(){
+    const s=["Totes","Novetats",...new Set(LLIBRES.map(l=>l.seccio).filter(Boolean))];
+    $("xips").innerHTML=s.map(x=>`<button class="xip${x===seccio?" actiu":""}">${esc(x)}</button>`).join("");
+    $("xips").querySelectorAll(".xip").forEach(b=>b.onclick=()=>{ seccio=b.textContent; xips(); pintar(); });
+  }
+  function iniciar(text){ LLIBRES=llegirCSV(text); xips(); pintar(); pintarCistella(); }
+
+  const exemple=()=>iniciar($("dadesCSV").textContent);
+  if(FULL_CSV){
+    fetch(FULL_CSV,{cache:"no-store"}).then(r=>{ if(!r.ok) throw 0; return r.text(); })
+      .then(t=>{ iniciar(t); const d=document.querySelector(".avis-demo"); if(d) d.remove(); })
+      .catch(exemple);
+  } else exemple();
+
+  /* data de l'última actualització (la escriu l'actualitzador) */
+  fetch("cataleg-info.json",{cache:"no-store"}).then(r=>r.ok?r.json():null).then(i=>{
+    if(!i||!i.actualitzat) return;
+    const d=new Date(i.actualitzat);
+    $("recompte").dataset.info=` · catàleg actualitzat el ${d.getDate()}/${d.getMonth()+1}/${d.getFullYear()}`;
+    pintar();
+  }).catch(()=>{});
+</script>
+</body>
+</html>
