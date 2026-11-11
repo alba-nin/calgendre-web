@@ -32,9 +32,9 @@
   header{position:sticky;top:0;z-index:20;background:rgba(244,236,223,.94);backdrop-filter:blur(6px);border-bottom:1px solid rgba(90,46,14,.15)}
   .nav{display:flex;align-items:center;justify-content:space-between;height:68px}
   .marca{display:flex;align-items:center;gap:12px;text-decoration:none;color:var(--marro)}
-  .marca img{height:30px;width:auto}
+  .marca{flex-shrink:0}.marca img{height:30px;width:auto;max-width:none}
   .marca span{font-family:"Libre Caslon Display",serif;font-size:22px;letter-spacing:.04em}
-  nav ul{display:flex;gap:28px;list-style:none}
+  nav ul{display:flex;gap:22px;list-style:none}
   nav a{text-decoration:none;font-size:15px;letter-spacing:.08em;text-transform:uppercase;color:var(--marro)}
   nav a:hover{text-decoration:underline;text-underline-offset:5px}
   .menu-btn{display:none;background:none;border:0;color:var(--marro);font:inherit;font-size:15px;letter-spacing:.08em;text-transform:uppercase;cursor:pointer}
@@ -159,12 +159,14 @@
   footer{background:var(--marro-fosc);color:rgba(244,236,223,.75);text-align:center;padding:44px 0 50px;font-size:15px}
   footer img{width:min(420px,80vw);margin:0 auto 14px;opacity:.9}
 
-  @media (max-width:820px){
-    body{font-size:17px}
+  @media (max-width:1100px){
     nav ul{display:none;position:absolute;top:68px;left:0;right:0;flex-direction:column;gap:0;background:var(--crema);border-bottom:1px solid rgba(90,46,14,.2)}
     nav ul.obert{display:flex}
     nav li a{display:block;padding:16px 24px}
     .menu-btn{display:block}
+  }
+  @media (max-width:820px){
+    body{font-size:17px}
     .marca span{font-size:19px}
     .carta-grid,.visita-grid{grid-template-columns:1fr}
     .som .faixa{padding:26px 24px 60px}
@@ -192,13 +194,12 @@
     <nav>
       <button class="menu-btn" id="menuBtn" aria-expanded="false">Menú</button>
       <ul id="menu">
-        <li><a href="#inauguracio">Inauguració</a></li>
         <li><a href="#espai">L'espai</a></li>
         <li><a href="#llibreria">Llibreria</a></li>
         <li><a href="cataleg.html">Catàleg</a></li>
         <li><a href="#cafeteria">Cafeteria</a></li>
+        <li><a href="#carta">Carta</a></li>
         <li><a href="#agenda">Agenda</a></li>
-        <li><a href="#instagram">Instagram</a></li>
         <li><a href="#visita">Visita'ns</a></li>
       </ul>
     </nav>
@@ -266,6 +267,7 @@
     <div class="paper">
       <p>Una cafeteria que dona <u>temps</u>: un espai càlid on quedar-se, habitar la pausa i fer de la quotidianitat un lloc de recer i comunitat.</p>
       <p class="mes">Cafè, esmorzars, berenars i vermut amb vins i productes del Penedès.</p>
+      <p style="margin-top:18px"><a class="boto ple" href="#carta" style="background:var(--marro);color:var(--crema);border-color:var(--marro)">Mira la carta</a></p>
     </div>
   </div>
 </section>
@@ -435,7 +437,7 @@
   else if(dies===1) f.textContent="És demà!";
   else if(dies===0) f.textContent="És avui! T'esperem.";
   else { document.getElementById("inauguracio").style.display="none";
-         document.querySelector('nav a[href="#inauguracio"]').parentElement.style.display="none"; }
+          }
   document.getElementById("waBtn").href=`https://wa.me/${WHATSAPP}`;
 
   const btn=document.getElementById("menuBtn"), menu=document.getElementById("menu");
