@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+<html lang="ca">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Amics de Cal Gendre · Cal Gendre 1879</title>
+<meta name="description" content="Fes-te Amic de Cal Gendre: amb una quota de 5, 10 o 20 € al mes, el 80 % es converteix en saldo per a llibres i el 20 % dona suport a la llibreria. A més, un 5 % de descompte en llibres.">
+<link rel="icon" type="image/png" href="favicon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Libre+Caslon+Display&family=Libre+Caslon+Text:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+<style>
+  :root{--marro:#5a2e0c;--marro-fosc:#3b1d07;--crema:#f4ecdf;--paper:#fbf8f2;--tinta:#2a1708;--lila:#9b55b8;--max:1080px}
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{font-family:"Libre Caslon Text",Georgia,serif;color:var(--tinta);background:var(--crema);line-height:1.55;font-size:18px}
+  a{color:inherit}
+  button,input,select{font:inherit;color:inherit}
+  .wrap{max-width:var(--max);margin:0 auto;padding:0 24px}
+  h1,h2,h3{font-family:"Libre Caslon Display",Georgia,serif;font-weight:400;line-height:1.05}
+
+  header.cap{position:sticky;top:0;z-index:30;background:rgba(244,236,223,.95);backdrop-filter:blur(6px);border-bottom:1px solid rgba(90,46,14,.15)}
+  .nav{display:flex;align-items:center;justify-content:space-between;height:68px}
+  .nav img{height:30px}
+  .nav a.tornar{font-size:14px;letter-spacing:.08em;text-transform:uppercase;color:var(--marro);text-decoration:none}
+
+  .hero{background:var(--marro);color:var(--crema);text-align:center;padding:70px 0 120px;overflow:hidden}
+  .hero img{display:block;width:min(170px,40vw);margin:0 auto 26px}
+  .hero small{letter-spacing:.22em;text-transform:uppercase;font-size:14px;opacity:.85}
+  .hero h1{font-size:clamp(52px,10vw,110px);text-transform:uppercase;margin-top:10px}
+  .hero p{max-width:640px;margin:22px auto 0;font-size:clamp(18px,2.2vw,22px);font-style:italic}
+
+  .gracies{display:none;background:var(--lila);color:#fff;text-align:center;padding:26px 20px;font-size:20px}
+  .gracies b{font-family:"Libre Caslon Display",serif;font-weight:400;font-size:32px;display:block;margin-bottom:4px}
+  :target.gracies{display:block}
+
+  .passos{margin-top:-70px;position:relative;z-index:2}
+  .passos-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
+  .pas{background:var(--paper);padding:28px 26px;box-shadow:0 12px 28px rgba(59,29,7,.14)}
+  .pas:nth-child(1){transform:rotate(-1.5deg)} .pas:nth-child(3){transform:rotate(1.5deg)}
+  .pas b{font-family:"Libre Caslon Display",serif;font-weight:400;font-size:48px;color:var(--lila);line-height:1}
+  .pas h3{font-size:24px;color:var(--marro);margin:8px 0 8px}
+  .pas p{font-size:16px}
+
+  .sec{padding:90px 0}
+  .titol{font-size:clamp(38px,6vw,62px);color:var(--marro);text-transform:uppercase;text-align:center}
+  .sub{text-align:center;font-style:italic;color:#6d4a2d;margin:8px auto 46px;max-width:620px}
+
+  .quotes{display:grid;grid-template-columns:repeat(3,1fr);gap:26px;align-items:stretch}
+  .quota{background:var(--paper);border-top:8px solid var(--marro);padding:34px 28px 30px;text-align:center;display:flex;flex-direction:column;box-shadow:0 8px 20px rgba(59,29,7,.08)}
+  .quota h3{font-size:26px;color:var(--marro)}
+  .quota .preu{font-family:"Libre Caslon Display",serif;font-size:76px;line-height:1;color:var(--marro);margin:16px 0 4px}
+  .quota .preu small{font-size:22px}
+  
+  .quota .any{font-style:italic;color:#6d4a2d}
+  .quota ul{list-style:none;margin:22px 0 26px;text-align:left;font-size:16px}
+  .quota li{padding:8px 0 8px 26px;border-bottom:1px dotted rgba(90,46,14,.3);position:relative}
+  .quota li::before{content:"✦";position:absolute;left:0;color:var(--lila)}
+  .boto{display:inline-block;margin-top:auto;text-decoration:none;border:1px solid var(--marro);background:var(--marro);color:var(--crema);padding:14px 20px;font-size:14px;letter-spacing:.1em;text-transform:uppercase;cursor:pointer;text-align:center}
+  .boto:hover{background:var(--lila);border-color:var(--lila)}
+  .boto.lila{background:var(--lila);border-color:var(--lila)}
+  .boto.buit{background:transparent;color:var(--marro)}
+  .nota-pag{text-align:center;font-size:14px;color:#6d4a2d;margin-top:26px}
+
+  .condicions{background:var(--paper)}
+  .cond-grid{display:grid;grid-template-columns:1fr 1fr;gap:40px}
+  .cond-grid h3{font-size:28px;color:var(--marro);margin-bottom:12px}
+  .cond-grid ul{padding-left:20px}
+  .cond-grid li{margin-bottom:10px;font-size:16px}
+  details{border-bottom:1px solid rgba(90,46,14,.25);padding:14px 0}
+  summary{cursor:pointer;font-size:18px;color:var(--marro);list-style:none;position:relative;padding-right:28px}
+  summary::after{content:"+";position:absolute;right:0;top:-2px;font-size:24px}
+  details[open] summary::after{content:"–"}
+  details p{margin-top:8px;font-size:16px}
+
+
+
+  .repart{display:flex;height:34px;margin:18px 0 6px;font-size:13px;color:#fff;text-align:center;line-height:34px}
+  .repart .m{background:var(--marro);flex:8}
+  .repart .s{background:var(--lila);flex:2}
+  .repart-llegenda{font-size:14px;color:#6d4a2d}
+  .tria{margin-top:auto;display:inline-block;text-decoration:none;border:1px solid var(--marro);color:var(--marro);padding:12px 18px;font-size:14px;letter-spacing:.1em;text-transform:uppercase}
+  .tria:hover{background:var(--marro);color:var(--crema)}
+  .quota.sel{outline:3px solid var(--lila);outline-offset:-3px}
+
+  /* Formulari d'alta */
+  .alta{background:var(--paper)}
+  .form{max-width:760px;margin:0 auto;background:#fff;padding:36px 36px 30px;box-shadow:0 10px 26px rgba(59,29,7,.1)}
+  .form fieldset{border:0;margin-bottom:22px}
+  .form legend{font-family:"Libre Caslon Display",serif;font-size:26px;color:var(--marro);margin-bottom:10px;padding:0}
+  .camps{display:grid;grid-template-columns:1fr 1fr;gap:12px 18px}
+  .camps .ple{grid-column:1/-1}
+  .form label{display:block;font-size:14px;margin-bottom:4px}
+  .form input[type=text],.form input[type=email],.form input[type=tel]{width:100%;padding:11px 12px;border:1px solid rgba(90,46,14,.35);background:var(--paper);font-size:16px}
+  .form input:focus{outline:2px solid var(--lila);outline-offset:1px}
+  .opcions{display:flex;flex-wrap:wrap;gap:10px}
+  .opcions label{margin:0;cursor:pointer}
+  .opcions input{position:absolute;opacity:0;pointer-events:none}
+  .opcions span{display:block;border:1px solid var(--marro);padding:10px 16px;font-size:15px;color:var(--marro)}
+  .opcions input:checked+span{background:var(--marro);color:var(--crema)}
+  .opcions input:focus-visible+span{outline:2px solid var(--lila);outline-offset:2px}
+  .resum{background:var(--crema);padding:14px 18px;margin-top:14px;font-size:16px}
+  .check{display:flex;gap:10px;align-items:flex-start;font-size:14px;margin:10px 0}
+  .check input{margin-top:4px;flex-shrink:0}
+  .mandat{font-size:13px;color:#5b3f28;background:var(--crema);padding:12px 14px;margin:8px 0}
+  .form .error{color:#a0331f;font-size:15px;min-height:22px;margin:8px 0}
+  .form button.boto{border:0;width:100%;font-size:15px;padding:16px}
+  .fet{display:none;text-align:center;padding:30px 10px}
+  .fet h3{font-size:34px;color:var(--lila);margin-bottom:8px}
+  @media (max-width:820px){ .camps{grid-template-columns:1fr} .form{padding:26px 18px} }
+
+  footer{background:var(--marro-fosc);color:rgba(244,236,223,.75);text-align:center;padding:40px 0;font-size:15px}
+  footer img{width:min(380px,80vw);margin:0 auto;display:block}
+
+  @media (max-width:820px){
+    .passos-grid,.quotes,.cond-grid{grid-template-columns:1fr}
+    .quota.mig{transform:none}
+    .pas:nth-child(n){transform:none}
+    .nav img{height:22px}
+    .hero{padding-bottom:100px}
+  }
+</style>
+</head>
+<body>
+
+<header class="cap">
+  <div class="wrap nav">
+    <a href="index.html"><img src="wordmark_marro.png" alt="Cal Gendre 1879"></a>
+    <a class="tornar" href="index.html">← Tornar a l'inici</a>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="wrap">
+    <img src="drac_crema.png" alt="">
+    <small>Cal Gendre 1879</small>
+    <h1>Amics de<br>Cal Gendre</h1>
+    <p>Una quota cada mes que es converteix en saldo per gastar en llibres i que, alhora, ajuda a fer créixer la llibreria del poble.</p>
+  </div>
+</section>
+
+<section class="passos">
+  <div class="wrap passos-grid">
+    <div class="pas"><b>1</b><h3>Tria la teva quota</h3><p>5, 10 o 20 € al mes, amb pagament mensual, trimestral o anual per domiciliació.</p></div>
+    <div class="pas"><b>2</b><h3>80 % per a tu, 20 % per a la llibreria</h3><p>El 80 % de cada quota se suma al teu saldo. El 20 % restant dona suport a Cal Gendre.</p></div>
+    <div class="pas"><b>3</b><h3>Gasta el saldo en llibres</h3><p>Quan vulguis i sense caducitat. I a més, un 5 % de descompte en tots els llibres.</p></div>
+  </div>
+</section>
+
+<section class="sec" id="quotes">
+  <div class="wrap">
+    <h2 class="titol">Tria la quota</h2>
+    <p class="sub">Tots els nivells tenen els mateixos avantatges: només canvia quant saldo acumules.</p>
+    <div class="quotes">
+      <div class="quota" data-q="5">
+        <h3>Lector/a</h3>
+        <div class="preu">5 €<small>/mes</small></div>
+        <div class="repart"><div class="m">4 €</div><div class="s">1 €</div></div>
+        <div class="repart-llegenda">saldo · suport</div>
+        <ul>
+          <li>48 € l'any de saldo per a llibres</li>
+          <li>5 % de descompte en llibres</li>
+          <li>El saldo no caduca</li>
+        </ul>
+        <a class="tria" href="#alta" data-quota="5">Tria aquesta quota</a>
+      </div>
+      <div class="quota" data-q="10">
+        <h3>Devorador/a</h3>
+        <div class="preu">10 €<small>/mes</small></div>
+        <div class="repart"><div class="m">8 €</div><div class="s">2 €</div></div>
+        <div class="repart-llegenda">saldo · suport</div>
+        <ul>
+          <li>96 € l'any de saldo per a llibres</li>
+          <li>5 % de descompte en llibres</li>
+          <li>El saldo no caduca</li>
+        </ul>
+        <a class="tria" href="#alta" data-quota="10">Tria aquesta quota</a>
+      </div>
+      <div class="quota" data-q="20">
+        <h3>Bibliòfil/a</h3>
+        <div class="preu">20 €<small>/mes</small></div>
+        <div class="repart"><div class="m">16 €</div><div class="s">4 €</div></div>
+        <div class="repart-llegenda">saldo · suport</div>
+        <ul>
+          <li>192 € l'any de saldo per a llibres</li>
+          <li>5 % de descompte en llibres</li>
+          <li>El saldo no caduca</li>
+        </ul>
+        <a class="tria" href="#alta" data-quota="20">Tria aquesta quota</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="sec alta" id="alta">
+  <div class="wrap">
+    <h2 class="titol">Fes-te'n amic/ga</h2>
+    <p class="sub">Omple el formulari: en dos minuts estàs donat/da d'alta. Et cobrarem la quota per domiciliació bancària.</p>
+
+    <form class="form" id="form" novalidate>
+      <fieldset>
+        <legend>La teva quota</legend>
+        <div class="opcions" role="radiogroup" aria-label="Quota">
+          <label><input type="radio" name="quota" value="5"><span>5 €/mes</span></label>
+          <label><input type="radio" name="quota" value="10"><span>10 €/mes</span></label>
+          <label><input type="radio" name="quota" value="20"><span>20 €/mes</span></label>
+        </div>
+        <p style="font-size:14px;margin:14px 0 8px">Com vols pagar-la?</p>
+        <div class="opcions" role="radiogroup" aria-label="Periodicitat">
+          <label><input type="radio" name="periode" value="Mensual" checked><span>Cada mes</span></label>
+          <label><input type="radio" name="periode" value="Trimestral"><span>Cada 3 mesos</span></label>
+          <label><input type="radio" name="periode" value="Anual"><span>Un cop l'any</span></label>
+        </div>
+        <div class="resum" id="resum">Tria una quota.</div>
+      </fieldset>
+
+      <fieldset>
+        <legend>Les teves dades</legend>
+        <div class="camps">
+          <div class="ple"><label for="nom">Nom i cognoms *</label><input type="text" id="nom" autocomplete="name"></div>
+          <div><label for="dni">DNI / NIE *</label><input type="text" id="dni" autocomplete="off"></div>
+          <div><label for="tel">Telèfon *</label><input type="tel" id="tel" autocomplete="tel"></div>
+          <div class="ple"><label for="mail">Correu electrònic *</label><input type="email" id="mail" autocomplete="email"></div>
+          <div class="ple"><label for="adreca">Adreça *</label><input type="text" id="adreca" autocomplete="street-address"></div>
+          <div><label for="cp">Codi postal *</label><input type="text" id="cp" autocomplete="postal-code" inputmode="numeric"></div>
+          <div><label for="poblacio">Població *</label><input type="text" id="poblacio" autocomplete="address-level2"></div>
+        </div>
+      </fieldset>
+
+      <fieldset>
+        <legend>Domiciliació bancària</legend>
+        <div class="camps">
+          <div class="ple"><label for="iban">IBAN *</label><input type="text" id="iban" placeholder="ES00 0000 0000 0000 0000 0000" autocomplete="off" inputmode="text"></div>
+          <div class="ple"><label for="titular">Titular del compte (si no ets tu)</label><input type="text" id="titular" autocomplete="off"></div>
+        </div>
+        <div class="mandat">
+          <b>Ordre de domiciliació SEPA.</b> Mitjançant aquesta ordre autoritzo Cal Gendre 1879 (Assutzena Nin Hill) a enviar
+          instruccions a la meva entitat per carregar al meu compte la quota escollida amb la periodicitat indicada, i la meva entitat a
+          efectuar aquests càrrecs. Tinc dret a demanar a la meva entitat la devolució de qualsevol càrrec en un termini de 8 setmanes
+          des de la data del càrrec, d'acord amb les condicions del meu contracte amb l'entitat.
+        </div>
+        <label class="check"><input type="checkbox" id="accMandat"> <span>Autoritzo la domiciliació de la quota en aquest compte. *</span></label>
+      </fieldset>
+
+      <fieldset>
+        <legend>Per acabar</legend>
+        <label class="check"><input type="checkbox" id="accCond"> <span>He llegit i accepto les <a href="#condicions">condicions d'Amics de Cal Gendre</a> i l'<a href="avis-legal.html" target="_blank">avís legal i privacitat</a>. *</span></label>
+        <label class="check"><input type="checkbox" id="accNews"> <span>Vull rebre per correu les novetats i l'agenda de Cal Gendre (opcional).</span></label>
+      </fieldset>
+
+      <div class="error" id="err" role="alert"></div>
+      <button class="boto" type="submit" id="enviar">Fes-me amic/ga de Cal Gendre</button>
+      <p style="font-size:13px;color:#6d4a2d;margin-top:12px;text-align:center">Les teves dades viatgen xifrades i només les veu la llibreria.</p>
+    </form>
+
+    <div class="form fet" id="fet">
+      <h3>Benvingut/da!</h3>
+      <p>Ja ets Amic/ga de Cal Gendre. Rebràs el primer càrrec al compte que ens has indicat, i el saldo l'anirem sumant a la teva fitxa de la llibreria.</p>
+      <p style="margin-top:12px">La propera vegada que vinguis, digues-nos el teu nom i ja ho tindràs tot a punt.</p>
+    </div>
+  </div>
+</section>
+
+<section class="sec condicions" id="condicions">
+  <div class="wrap cond-grid">
+    <div>
+      <h3>Condicions</h3>
+      <ul>
+        <li>La quota es cobra per domiciliació bancària: cada mes, cada tres mesos o un cop l'any, segons el que hagis triat.</li>
+        <li>De cada quota cobrada, el <b>80 % se suma al teu saldo</b> a Cal Gendre i el <b>20 % és una aportació de suport</b> a la llibreria, que no genera saldo.</li>
+        <li>El saldo es pot gastar en <b>llibres</b>, a la llibreria, quan vulguis i en tantes compres com vulguis.</li>
+        <li>Mentre siguis Amic/ga de Cal Gendre, tens un <b>5 % de descompte en llibres</b>. No és acumulable amb altres descomptes en llibres, d'acord amb la llei del preu fix del llibre.</li>
+        <li><b>El saldo no caduca</b>, ni tan sols si et dones de baixa: el que hagis acumulat continua sent teu.</li>
+        <li>Et pots donar de baixa o canviar de quota quan vulguis, escrivint-nos a llibreria@calgendre.cat, per WhatsApp o a la llibreria. Si ens ho dius abans del dia 25, ja no et cobrarem la quota següent.</li>
+        <li>Si un rebut es retorna per causes alienes a la llibreria, es descomptaran del saldo les despeses bancàries de la devolució.</li>
+      </ul>
+    </div>
+    <div>
+      <h3>Preguntes freqüents</h3>
+      <details><summary>Per què el 20 % no és saldo?</summary><p>És la part que fa possible tot el que passa a Cal Gendre: les presentacions, els clubs de lectura i que hi hagi una llibreria al poble. És la teva manera de fer-ne part.</p></details>
+      <details><summary>Puc gastar el saldo a la cafeteria?</summary><p>De moment el saldo és només per a llibres.</p></details>
+      <details><summary>Què passa si em dono de baixa?</summary><p>Deixem de cobrar-te la quota, però el saldo que hagis acumulat no caduca: el pots gastar en llibres quan vulguis.</p></details>
+      <details><summary>I si vull un llibre que no teniu?</summary><p>Te l'encarreguem i el pots pagar amb el saldo quan arribi.</p></details>
+      <details><summary>Com sé quant saldo tinc?</summary><p>Pregunta-ho a la llibreria o envia'ns un WhatsApp i t'ho diem.</p></details>
+      <details><summary>És segur posar el meu IBAN aquí?</summary><p>Sí: la connexió és xifrada i les dades només les fa servir la llibreria per cobrar la quota. Amb la domiciliació SEPA sempre pots demanar al teu banc que et retorni un càrrec en un termini de 8 setmanes.</p></details>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <img src="logo_adreca_crema.png" alt="Cal Gendre 1879 · Plaça de Pau Casals · Santa Margarida i els Monjos">
+  <p style="margin-top:14px;font-size:13px"><a href="avis-legal.html" style="color:inherit">Avís legal i privacitat</a></p>
+</footer>
+
+<script>
+  /* ===================== CONFIGURACIÓ =====================
+     Les altes s'envien a un Formulari de Google (les respostes queden en un full de càlcul).
+     Com obtenir aquests valors: GUIA-AMICS.md, pas 1.
+     Mentre FORMULARI_GOOGLE estigui buit, el botó obre un correu amb les dades. */
+  const FORMULARI_GOOGLE = "";   // https://docs.google.com/forms/d/e/XXXXXXXX/formResponse
+  const CAMPS = {                // identificadors "entry.123456" de cada pregunta del formulari de Google
+    quota:"", periode:"", nom:"", dni:"", tel:"", mail:"", adreca:"", cp:"", poblacio:"",
+    iban:"", titular:"", mandat:"", butlleti:""
+  };
+  const EMAIL = "llibreria@calgendre.cat";
+  const SALDO = 0.80;            // part de la quota que va a saldo
+
+  const $=id=>document.getElementById(id);
+  const val=n=>(document.querySelector(`input[name="${n}"]:checked`)||{}).value;
+  const eur=x=>x.toLocaleString("ca-ES",{minimumFractionDigits:x%1?2:0,maximumFractionDigits:2})+" €";
+  const MESOS={Mensual:1,Trimestral:3,Anual:12};
+
+  function resum(){
+    const q=+val("quota"), p=val("periode");
+    document.querySelectorAll(".quota").forEach(c=>c.classList.toggle("sel",+c.dataset.q===q));
+    if(!q){ $("resum").textContent="Tria una quota."; return; }
+    const m=MESOS[p], cobra=q*m, saldo=cobra*SALDO;
+    const quan={Mensual:"cada mes",Trimestral:"cada tres mesos",Anual:"un cop l'any"}[p];
+    $("resum").innerHTML=`Et cobrarem <b>${eur(cobra)} ${quan}</b>: <b>${eur(saldo)}</b> aniran al teu saldo per a llibres i ${eur(cobra-saldo)} donaran suport a Cal Gendre.`;
+  }
+  document.querySelectorAll('input[name="quota"],input[name="periode"]').forEach(i=>i.addEventListener("change",resum));
+  document.querySelectorAll("[data-quota]").forEach(a=>a.addEventListener("click",()=>{
+    const r=document.querySelector(`input[name="quota"][value="${a.dataset.quota}"]`); r.checked=true; resum();
+  }));
+
+  /* IBAN: format i validació (mòdul 97) */
+  const netIban=s=>s.replace(/\s+/g,"").toUpperCase();
+  function ibanValid(s){
+    s=netIban(s); if(!/^[A-Z]{2}\d{2}[A-Z0-9]{10,30}$/.test(s)) return false;
+    if(s.startsWith("ES")&&s.length!==24) return false;
+    const r=(s.slice(4)+s.slice(0,4)).replace(/[A-Z]/g,c=>c.charCodeAt(0)-55);
+    let m=0; for(const d of r) m=(m*10+ +d)%97; return m===1;
+  }
+  $("iban").addEventListener("input",e=>{
+    const c=e.target.selectionStart===e.target.value.length;
+    e.target.value=netIban(e.target.value).replace(/(.{4})/g,"$1 ").trim();
+  });
+  function dniValid(s){
+    s=s.toUpperCase().replace(/[\s-]/g,""); const L="TRWAGMYFPDXBNJZSQVHLCKE";
+    let m=s.match(/^([XYZ]?)(\d{7,8})([A-Z])$/); if(!m) return false;
+    const n=+(({X:"0",Y:"1",Z:"2"}[m[1]]||"")+m[2]); return L[n%23]===m[3];
+  }
+
+  function dades(){
+    const q=val("quota"), p=val("periode");
+    return { quota:q?`${q} €/mes`:"", periode:p, nom:$("nom").value.trim(), dni:$("dni").value.trim().toUpperCase(),
+      tel:$("tel").value.trim(), mail:$("mail").value.trim(), adreca:$("adreca").value.trim(), cp:$("cp").value.trim(),
+      poblacio:$("poblacio").value.trim(), iban:netIban($("iban").value), titular:$("titular").value.trim(),
+      mandat:$("accMandat").checked?"Sí":"No", butlleti:$("accNews").checked?"Sí":"No" };
+  }
+  function errors(d){
+    if(!d.quota) return "Tria una quota.";
+    for(const [k,t] of [["nom","el nom"],["dni","el DNI"],["tel","el telèfon"],["mail","el correu"],["adreca","l'adreça"],["cp","el codi postal"],["poblacio","la població"]])
+      if(!d[k]) return `Falta ${t}.`;
+    if(!dniValid(d.dni)) return "Revisa el DNI o NIE: la lletra no quadra.";
+    if(!/^\S+@\S+\.\S+$/.test(d.mail)) return "Revisa el correu electrònic.";
+    if(!ibanValid(d.iban)) return "Revisa l'IBAN: sembla que hi ha algun número malament.";
+    if(!$("accMandat").checked) return "Cal autoritzar la domiciliació.";
+    if(!$("accCond").checked) return "Cal acceptar les condicions.";
+    return "";
+  }
+
+  $("form").addEventListener("submit",async e=>{
+    e.preventDefault();
+    const d=dades(), err=errors(d); $("err").textContent=err; if(err) return;
+    if(!FORMULARI_GOOGLE){
+      const cos=Object.entries(d).map(([k,v])=>`${k}: ${v}`).join("\n");
+      location.href=`mailto:${EMAIL}?subject=${encodeURIComponent("Alta Amics de Cal Gendre")}&body=${encodeURIComponent(cos)}`;
+      return;
+    }
+    const f=new URLSearchParams();
+    for(const [k,v] of Object.entries(d)) if(CAMPS[k]) f.append(CAMPS[k],v);
+    $("enviar").disabled=true; $("enviar").textContent="Enviant…";
+    try{
+      await fetch(FORMULARI_GOOGLE,{method:"POST",mode:"no-cors",body:f});
+      $("form").style.display="none"; $("fet").style.display="block";
+      $("fet").scrollIntoView({behavior:"smooth",block:"center"});
+    }catch(_){
+      $("err").textContent="No s'ha pogut enviar. Comprova la connexió i torna-ho a provar.";
+      $("enviar").disabled=false; $("enviar").textContent="Fes-me amic/ga de Cal Gendre";
+    }
+  });
+  resum();
+</script>
+</body>
+</html>

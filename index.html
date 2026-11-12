@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Cal Gendre 1879 · Llibreria, cafeteria i espai cultural</title>
-<meta name="description" content="Cal Gendre 1879: llibreria, cafeteria i espai cultural a la Plaça de Pau Casals de Santa Margarida i els Monjos (Penedès).">
+<meta name="description" content="Cal Gendre 1879: llibreria, cafeteria i espai cultural a la plaça de Pau Casals (Raval de Sant Martí, 15) de Santa Margarida i els Monjos, al Penedès.">
 <link rel="icon" type="image/png" href="favicon.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -133,6 +133,22 @@
   .acte.lila .tipus{background:var(--lila)}
 
 
+
+  /* Paquet lector */
+  .paquet{background:var(--paper);padding:90px 0}
+  .paquet-in{display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center}
+  .paquet-fotos{position:relative;height:520px}
+  .paquet-fotos img{position:absolute;object-fit:cover;box-shadow:0 14px 30px rgba(59,29,7,.25);border:8px solid #fff}
+  .paquet-fotos .f1{width:58%;aspect-ratio:1;left:0;top:0;transform:rotate(-4deg)}
+  .paquet-fotos .f2{width:52%;aspect-ratio:4/5;right:0;top:40px;transform:rotate(3deg)}
+  .paquet-fotos .f3{width:44%;aspect-ratio:1;left:16%;bottom:0;transform:rotate(-1.5deg)}
+  .paquet small{letter-spacing:.2em;text-transform:uppercase;font-size:13px;color:var(--lila)}
+  .paquet h2{font-size:clamp(42px,6vw,68px);color:var(--marro);text-transform:uppercase;margin:6px 0 16px}
+  .paquet ol{margin:14px 0 14px 22px}
+  .paquet li{margin-bottom:8px}
+  .paquet .nota{font-style:italic;color:#6d4a2d;font-size:16px}
+  .paquet-boto{margin-top:20px;background:var(--marro);color:var(--crema);border-color:var(--marro)}
+
   /* Pròximament (carta i catàleg) */
   .carta-cont{position:relative}
   .segell{display:none}
@@ -156,10 +172,21 @@
   .insta .usuari{font-family:"Libre Caslon Display",serif;font-size:clamp(26px,4vw,40px);color:var(--marro);text-decoration:none;display:inline-block;margin-bottom:18px}
   .insta .boto{background:var(--marro);color:var(--crema);border-color:var(--marro)}
 
+
+  /* Amics */
+  .amics{background:var(--lila);color:#fff;padding:56px 0}
+  .amics-in{display:grid;grid-template-columns:150px 1fr auto;gap:36px;align-items:center}
+  .amics img{width:150px}
+  .amics small{letter-spacing:.2em;text-transform:uppercase;font-size:13px;opacity:.9}
+  .amics h2{font-size:clamp(34px,5vw,54px);text-transform:uppercase;margin:4px 0 10px}
+  .amics p{max-width:620px}
+  .amics .boto{background:#fff;color:var(--lila);border-color:#fff;white-space:nowrap}
+  .amics .boto:hover{background:var(--marro);border-color:var(--marro);color:#fff}
+
   footer{background:var(--marro-fosc);color:rgba(244,236,223,.75);text-align:center;padding:44px 0 50px;font-size:15px}
   footer img{width:min(420px,80vw);margin:0 auto 14px;opacity:.9}
 
-  @media (max-width:1100px){
+  @media (max-width:1180px){
     nav ul{display:none;position:absolute;top:68px;left:0;right:0;flex-direction:column;gap:0;background:var(--crema);border-bottom:1px solid rgba(90,46,14,.2)}
     nav ul.obert{display:flex}
     nav li a{display:block;padding:16px 24px}
@@ -174,6 +201,10 @@
     .som.dreta .paper{margin:-40px -4px 0 6px}
     .acte{grid-template-columns:80px 1fr;padding:18px}
     .acte .accio{grid-column:1 / -1;text-align:left}
+    .amics-in{grid-template-columns:1fr;text-align:center;gap:18px}
+    .paquet-in{grid-template-columns:1fr;gap:30px}
+    .paquet-fotos{height:400px}
+    .amics img{width:110px;margin:0 auto}
     .insta-grid{grid-template-columns:repeat(3,1fr);gap:6px}
     .segell span{padding:8px 26px 10px}
     .programa div{grid-template-columns:1fr;gap:4px}
@@ -200,6 +231,7 @@
         <li><a href="#cafeteria">Cafeteria</a></li>
         <li><a href="#carta">Carta</a></li>
         <li><a href="#agenda">Agenda</a></li>
+        <li><a href="socis.html">Amics</a></li>
         <li><a href="#visita">Visita'ns</a></li>
       </ul>
     </nav>
@@ -254,8 +286,32 @@
     <div class="paper">
       <p>Dona el sentit a l'espai: els <b>llibres</b> com a font de preguntes, de conversa i de gaudi compartit.</p>
       <p style="margin-top:12px"><u>Llegir pot esdevenir-se trobada.</u></p>
-      <p class="mes">Narrativa, assaig, poesia, infantil i llibre de segona mà. Si no el tenim, te l'encarreguem.</p>
+      <p class="mes">Narrativa, assaig, poesia, infantil i llibre de segona mà. Si no el tenim, te l'encarreguem. I si és per regalar, mira el <a href="#paquet">paquet lector</a>.</p>
       <p style="margin-top:20px"><a class="boto ple" href="cataleg.html" style="background:var(--marro);color:var(--crema);border-color:var(--marro)">Consulta el catàleg</a></p>
+    </div>
+  </div>
+</section>
+
+<section class="paquet" id="paquet">
+  <div class="wrap paquet-in">
+    <div class="paquet-fotos">
+      <img class="f1" src="paquet_capsa.jpg" alt="La capsa del paquet lector, tancada amb un cordill" loading="lazy">
+      <img class="f2" src="paquet_reel.jpg" alt="Interior del paquet lector: llibre, tassa, espelma i segell exlibris" loading="lazy">
+      <img class="f3" src="paquet_segell.jpg" alt="Segell exlibris marcant un llibre" loading="lazy">
+    </div>
+    <div class="paquet-text">
+      <small>Per regalar o per autoregalar-te</small>
+      <h2>El paquet lector</h2>
+      <p>Una capsa per gaudir de la lectura amb calma. Dins hi trobaràs:</p>
+      <ol>
+        <li><b>El llibre</b> que hagis escollit.</li>
+        <li>Una <b>tassa</b> per al cafè o el te, perquè en una lectura plàcida no hi pot faltar.</li>
+        <li>Una <b>espelma</b> per fer un bon ambient lector.</li>
+        <li>Un <b>segell exlibris</b> per marcar els llibres de la teva biblioteca personal.</li>
+        <li>Un <b>bloc de notes</b> per apuntar i marcar els passatges que més t'agradin.</li>
+      </ol>
+      <p class="nota">Els complements van canviant segons la demanda, la campanya o el maridatge amb el llibre.</p>
+      <a class="boto paquet-boto" id="paquetWA" href="#" target="_blank" rel="noopener">Demana el teu paquet</a>
     </div>
   </div>
 </section>
@@ -333,6 +389,18 @@
   </div>
 </section>
 
+<section class="amics" id="amics">
+  <div class="wrap amics-in">
+    <img src="drac_crema.png" alt="">
+    <div>
+      <small>Nou</small>
+      <h2>Fes-te Amic de Cal Gendre</h2>
+      <p>Una quota de 5, 10 o 20 € al mes: el 80 % es converteix en saldo per gastar en llibres i el 20 % dona suport a la llibreria. A més, un 5 % de descompte en llibres. El saldo no caduca mai.</p>
+    </div>
+    <a class="boto" href="socis.html">Vull ser-ne</a>
+  </div>
+</section>
+
 <section class="insta" id="instagram">
   <div class="wrap">
     <h2 class="titol-sec">Vols veure què ha passat a la llibreria?</h2>
@@ -353,18 +421,19 @@
 <section class="visita" id="visita">
   <div class="wrap visita-grid">
     <div class="maquina">
-      <div class="adreca maq">Cal Gendre 1879<br>Plaça de Pau Casals<br>Santa Margarida i els Monjos<br>08730</div>
+      <div class="adreca maq">Cal Gendre 1879<br>Raval de Sant Martí, 15<br>(plaça de Pau Casals)<br>08730 Santa Margarida<br>i els Monjos</div>
     </div>
     <div>
       <h2 class="titol-sec">Visita'ns</h2>
       <table class="horaris">
         <tr><td>Dilluns</td><td>Tancat</td></tr>
-        <tr><td>Dimarts – Divendres</td><td>9:00 – 13:30 · 17:00 – 20:30</td></tr>
-        <tr><td>Dissabte</td><td>10:00 – 14:00 · 17:00 – 21:00</td></tr>
+        <tr><td>Dimarts – Dijous</td><td>9:00 – 13:30 · 17:00 – 20:00</td></tr>
+        <tr><td>Divendres</td><td>9:00 – 13:30 · 17:00 – 21:00</td></tr>
+        <tr><td>Dissabte</td><td>10:00 – 13:30 · 17:00 – 21:00</td></tr>
         <tr><td>Diumenge</td><td>10:00 – 14:30</td></tr>
       </table>
       <div class="botons">
-        <a class="boto ple" href="https://www.google.com/maps/search/?api=1&query=Pla%C3%A7a+de+Pau+Casals+Santa+Margarida+i+els+Monjos" target="_blank" rel="noopener">Com arribar-hi</a>
+        <a class="boto ple" href="https://www.google.com/maps/search/?api=1&query=Raval+de+Sant+Mart%C3%AD+15+Santa+Margarida+i+els+Monjos" target="_blank" rel="noopener">Com arribar-hi</a>
         <a class="boto" href="https://www.instagram.com/calgendre1879" target="_blank" rel="noopener">Instagram</a>
         <a class="boto" id="waBtn" href="#" target="_blank" rel="noopener">WhatsApp</a>
       </div>
@@ -375,7 +444,8 @@
 
 <footer>
   <img src="logo_adreca_crema.png" alt="Cal Gendre 1879 · Plaça de Pau Casals · Santa Margarida i els Monjos">
-  <p>Cal Gendre 1879 · Plaça de Pau Casals · 08730 Santa Margarida i els Monjos</p>
+  <p>Cal Gendre 1879 · Raval de Sant Martí, 15 (plaça de Pau Casals) · 08730 Santa Margarida i els Monjos</p>
+  <p style="margin-top:6px"><a href="tel:+34930968669" style="color:inherit">930 968 669</a> · <a href="mailto:llibreria@calgendre.cat" style="color:inherit">llibreria@calgendre.cat</a></p>
   <p style="margin-top:6px">Llibreria · Cafeteria · Espai cultural</p>
   <p style="margin-top:14px;font-size:13px"><a href="avis-legal.html" style="color:inherit">Avís legal i privacitat</a></p>
 </footer>
@@ -389,7 +459,7 @@
        - sense camp -> entrada lliure, sense botó
      places (opcional): text curt, p. ex. "Places limitades" o "12 places · 15 €"
      destacat: true -> es pinta en lila (inauguració, actes especials) */
-  const WHATSAPP = "34000000000";   // <- número de la llibreria, sense + ni espais
+  const WHATSAPP = "34930968669";   // <- número de la llibreria, sense + ni espais
 
   const AGENDA = [
     { data:"2026-11-28", hora:"11–21 h", tipus:"Inauguració", destacat:true,
@@ -439,6 +509,7 @@
   else { document.getElementById("inauguracio").style.display="none";
           }
   document.getElementById("waBtn").href=`https://wa.me/${WHATSAPP}`;
+  document.getElementById("paquetWA").href=`https://wa.me/${WHATSAPP}?text=${encodeURIComponent("Hola Cal Gendre! M'interessa el paquet lector.")}`;
 
   const btn=document.getElementById("menuBtn"), menu=document.getElementById("menu");
   btn.addEventListener("click",()=>{const o=menu.classList.toggle("obert");btn.setAttribute("aria-expanded",o)});
