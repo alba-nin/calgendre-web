@@ -63,7 +63,8 @@
   .acte .peu{display:flex;align-items:center;gap:14px;flex-wrap:wrap;margin-top:12px}
   .acte .places{font-size:13px;color:#6d4a2d}
   .boto{display:inline-block;text-decoration:none;background:var(--marro);color:var(--crema);border:1px solid var(--marro);padding:10px 16px;font-size:13px;letter-spacing:.1em;text-transform:uppercase}
-  .boto:hover{background:var(--lila);border-color:var(--lila)}
+  .boto:hover{background:var(--lila);border-color:var(--lila);color:#fff}
+  .boto.buit{background:transparent;color:var(--marro);font-style:normal}
   .buit{font-style:italic;color:#6d4a2d;background:var(--paper);padding:18px 20px}
 
   .llista{padding:20px 0 80px}
@@ -148,6 +149,26 @@
   const perDia={}; AGENDA.forEach(a=>(perDia[a.data]=perDia[a.data]||[]).push(a));
   const futurs=AGENDA.filter(a=>dataDe(a.data)>=avui).sort((a,b)=>a.data.localeCompare(b.data));
 
+  /* Enllaç "Afegeix a Google Calendar" */
+  const LLOC="Cal Gendre 1879, Raval de Sant Martí, 15, 08730 Santa Margarida i els Monjos";
+  function gcal(a){
+    const dia=a.data.replace(/-/g,"");
+    const m=String(a.hora||"").match(/(\d{1,2})(?:[:.](\d{2}))?\s*(?:h\s*)?(?:[–\-a]+\s*(\d{1,2})(?:[:.](\d{2}))?)?/);
+    let dates;
+    if(m){
+      const p2=n=>String(n).padStart(2,"0");
+      const h1=+m[1], m1=+(m[2]||0);
+      let h2=m[3]!==undefined?+m[3]:h1+2, m2=m[3]!==undefined?+(m[4]||0):m1;
+      const fi=h2>=24?"235900":p2(h2)+p2(m2)+"00";
+      dates=`${dia}T${p2(h1)}${p2(m1)}00/${dia}T${fi}`;
+    } else {
+      const d=dataDe(a.data); d.setDate(d.getDate()+1);
+      dates=`${dia}/${clau(d).replace(/-/g,"")}`;
+    }
+    const q=new URLSearchParams({action:"TEMPLATE",text:/cal gendre/i.test(a.titol)?a.titol:a.titol+" · Cal Gendre",dates,
+      details:(a.text||"")+"\n\nMés informació: https://calgendre.cat/agenda.html",location:LLOC,ctz:"Europe/Madrid"});
+    return `https://calendar.google.com/calendar/render?${q}`;
+  }
   function boto(a){
     if(!a.inscripcio) return "";
     let url=a.inscripcio;
@@ -163,7 +184,7 @@
       <h3>${esc(a.titol)}</h3>
       <div class="quan">${DIES[d.getDay()]} ${d.getDate()} ${de(MESOS[d.getMonth()])}${a.hora?" · "+esc(a.hora):""}</div>
       <p>${esc(a.text)}</p>
-      <div class="peu">${boto(a)}${a.places?`<span class="places">${esc(a.places)}</span>`:""}</div></article>`;
+      <div class="peu">${boto(a)}<a class="boto buit" href="${esc(gcal(a))}" target="_blank" rel="noopener">📅 Afegeix al meu calendari</a>${a.places?`<span class="places">${esc(a.places)}</span>`:""}</div></article>`;
   }
 
   /* mes inicial: el de la propera activitat o l'actual */
