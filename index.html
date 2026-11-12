@@ -135,19 +135,22 @@
 
 
   /* Paquet lector */
-  .paquet{background:var(--paper);padding:90px 0}
+  .paquet{background:var(--marro);color:var(--crema);padding:100px 0;position:relative;overflow:hidden}
+  .paquet::before{content:"";position:absolute;top:0;left:0;right:0;height:10px;background:#d8a73a}
   .paquet-in{display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center}
-  .paquet-fotos{position:relative;height:520px}
-  .paquet-fotos img{position:absolute;object-fit:cover;box-shadow:0 14px 30px rgba(59,29,7,.25);border:8px solid #fff}
+  .paquet-fotos{position:relative;height:540px}
+  .paquet-fotos img{position:absolute;object-fit:cover;box-shadow:0 18px 36px rgba(0,0,0,.35);border:8px solid #fbf8f2}
   .paquet-fotos .f1{width:58%;aspect-ratio:1;left:0;top:0;transform:rotate(-4deg)}
   .paquet-fotos .f2{width:52%;aspect-ratio:4/5;right:0;top:40px;transform:rotate(3deg)}
   .paquet-fotos .f3{width:44%;aspect-ratio:1;left:16%;bottom:0;transform:rotate(-1.5deg)}
-  .paquet small{letter-spacing:.2em;text-transform:uppercase;font-size:13px;color:var(--lila)}
-  .paquet h2{font-size:clamp(42px,6vw,68px);color:var(--marro);text-transform:uppercase;margin:6px 0 16px}
+  .paquet small{display:inline-block;letter-spacing:.2em;text-transform:uppercase;font-size:13px;background:#d8a73a;color:var(--marro-fosc);padding:4px 10px}
+  .paquet h2{font-size:clamp(46px,7vw,84px);text-transform:uppercase;margin:12px 0 16px;line-height:.98}
   .paquet ol{margin:14px 0 14px 22px}
   .paquet li{margin-bottom:8px}
-  .paquet .nota{font-style:italic;color:#6d4a2d;font-size:16px}
-  .paquet-boto{margin-top:20px;background:var(--marro);color:var(--crema);border-color:var(--marro)}
+  .paquet li::marker{color:#d8a73a;font-family:"Libre Caslon Display",serif}
+  .paquet .nota{font-style:italic;opacity:.8;font-size:16px}
+  .paquet-boto{margin-top:22px;background:#d8a73a;color:var(--marro-fosc);border-color:#d8a73a;font-size:15px;padding:14px 24px}
+  .paquet-boto:hover{background:var(--crema);border-color:var(--crema);color:var(--marro)}
 
   /* Pròximament (carta i catàleg) */
   .carta-cont{position:relative}
@@ -186,7 +189,7 @@
   footer{background:var(--marro-fosc);color:rgba(244,236,223,.75);text-align:center;padding:44px 0 50px;font-size:15px}
   footer img{width:min(420px,80vw);margin:0 auto 14px;opacity:.9}
 
-  @media (max-width:1180px){
+  @media (max-width:1240px){
     nav ul{display:none;position:absolute;top:68px;left:0;right:0;flex-direction:column;gap:0;background:var(--crema);border-bottom:1px solid rgba(90,46,14,.2)}
     nav ul.obert{display:flex}
     nav li a{display:block;padding:16px 24px}
@@ -225,12 +228,12 @@
     <nav>
       <button class="menu-btn" id="menuBtn" aria-expanded="false">Menú</button>
       <ul id="menu">
-        <li><a href="#espai">L'espai</a></li>
         <li><a href="#llibreria">Llibreria</a></li>
         <li><a href="cataleg.html">Catàleg</a></li>
         <li><a href="#cafeteria">Cafeteria</a></li>
         <li><a href="#carta">Carta</a></li>
-        <li><a href="#agenda">Agenda</a></li>
+        <li><a href="#paquet">Paquet lector</a></li>
+        <li><a href="agenda.html">Agenda</a></li>
         <li><a href="socis.html">Amics</a></li>
         <li><a href="#visita">Visita'ns</a></li>
       </ul>
@@ -292,26 +295,26 @@
   </div>
 </section>
 
-<section class="paquet" id="paquet">
-  <div class="wrap paquet-in">
-    <div class="paquet-fotos">
-      <img class="f1" src="paquet_capsa.jpg" alt="La capsa del paquet lector, tancada amb un cordill" loading="lazy">
-      <img class="f2" src="paquet_reel.jpg" alt="Interior del paquet lector: llibre, tassa, espelma i segell exlibris" loading="lazy">
-      <img class="f3" src="paquet_segell.jpg" alt="Segell exlibris marcant un llibre" loading="lazy">
+<section class="som dreta" id="cafeteria">
+  <div class="foto" style="background-image:url('vermut.jpg');background-position:center 47%"></div>
+  <div class="targeta">
+    <div class="faixa"><h2>Som una<br>cafeteria</h2></div>
+    <div class="paper">
+      <p>Una cafeteria que dona <u>temps</u>: un espai càlid on quedar-se, habitar la pausa i fer de la quotidianitat un lloc de recer i comunitat.</p>
+      <p class="mes">Cafè, esmorzars, berenars i vermut amb vins i productes del Penedès.</p>
+      <p style="margin-top:18px"><a class="boto ple" href="#carta" style="background:var(--marro);color:var(--crema);border-color:var(--marro)">Mira la carta</a></p>
     </div>
-    <div class="paquet-text">
-      <small>Per regalar o per autoregalar-te</small>
-      <h2>El paquet lector</h2>
-      <p>Una capsa per gaudir de la lectura amb calma. Dins hi trobaràs:</p>
-      <ol>
-        <li><b>El llibre</b> que hagis escollit.</li>
-        <li>Una <b>tassa</b> per al cafè o el te, perquè en una lectura plàcida no hi pot faltar.</li>
-        <li>Una <b>espelma</b> per fer un bon ambient lector.</li>
-        <li>Un <b>segell exlibris</b> per marcar els llibres de la teva biblioteca personal.</li>
-        <li>Un <b>bloc de notes</b> per apuntar i marcar els passatges que més t'agradin.</li>
-      </ol>
-      <p class="nota">Els complements van canviant segons la demanda, la campanya o el maridatge amb el llibre.</p>
-      <a class="boto paquet-boto" id="paquetWA" href="#" target="_blank" rel="noopener">Demana el teu paquet</a>
+  </div>
+</section>
+
+<section class="som" id="cultura">
+  <div class="foto" style="background-image:url('obrir.jpg');background-position:center 75%"></div>
+  <div class="targeta">
+    <div class="faixa"><h2>Som un espai<br>cultural</h2></div>
+    <div class="paper">
+      <p>Un espai que convida a aturar-se i a pensar: <u>la calma</u>, <u>la bellesa</u> i <u>l'esperit crític</u> com a punt de partida.</p>
+      <p style="margin-top:12px">Un lloc on la cultura pren moltes <b>formes</b>.</p>
+      <p class="mes">Presentacions de llibres, clubs de lectura, vermuts literaris, tallers i música petita.</p>
     </div>
   </div>
 </section>
@@ -336,6 +339,30 @@
       <p>Un espai que convida a aturar-se i a pensar: <u>la calma</u>, <u>la bellesa</u> i <u>l'esperit crític</u> com a punt de partida.</p>
       <p style="margin-top:12px">Un lloc on la cultura pren moltes <b>formes</b>.</p>
       <p class="mes">Presentacions de llibres, clubs de lectura, vermuts literaris, tallers i música petita.</p>
+    </div>
+  </div>
+</section>
+
+<section class="paquet" id="paquet">
+  <div class="wrap paquet-in">
+    <div class="paquet-fotos">
+      <img class="f1" src="paquet_capsa.jpg" alt="La capsa del paquet lector, tancada amb un cordill" loading="lazy">
+      <img class="f2" src="paquet_reel.jpg" alt="Interior del paquet lector: llibre, tassa, espelma i segell exlibris" loading="lazy">
+      <img class="f3" src="paquet_segell.jpg" alt="Segell exlibris marcant un llibre" loading="lazy">
+    </div>
+    <div class="paquet-text">
+      <small>Per regalar o per autoregalar-te</small>
+      <h2>El paquet lector</h2>
+      <p>Una capsa per gaudir de la lectura amb calma. Dins hi trobaràs:</p>
+      <ol>
+        <li><b>El llibre</b> que hagis escollit.</li>
+        <li>Una <b>tassa</b> per al cafè o el te, perquè en una lectura plàcida no hi pot faltar.</li>
+        <li>Una <b>espelma</b> per fer un bon ambient lector.</li>
+        <li>Un <b>segell exlibris</b> per marcar els llibres de la teva biblioteca personal.</li>
+        <li>Un <b>bloc de notes</b> per apuntar i marcar els passatges que més t'agradin.</li>
+      </ol>
+      <p class="nota">Els complements van canviant segons la demanda, la campanya o el maridatge amb el llibre.</p>
+      <a class="boto paquet-boto" id="paquetWA" href="#" target="_blank" rel="noopener">Demana el teu paquet</a>
     </div>
   </div>
 </section>
@@ -386,6 +413,7 @@
     <h2 class="titol-sec">Agenda</h2>
     <p class="sub">Què passa a Cal Gendre.</p>
     <div class="actes" id="actes"></div>
+    <p style="margin-top:26px"><a class="boto ple" href="agenda.html" style="background:var(--marro);color:var(--crema);border-color:var(--marro)">Veure el calendari</a></p>
   </div>
 </section>
 
@@ -450,30 +478,8 @@
   <p style="margin-top:14px;font-size:13px"><a href="avis-legal.html" style="color:inherit">Avís legal i privacitat</a></p>
 </footer>
 
+<script src="dades.js"></script>
 <script>
-  /* ===== AGENDA: edita aquesta llista per afegir o treure activitats =====
-     data: "AAAA-MM-DD". Les activitats passades s'amaguen soles.
-     inscripcio (opcional):
-       - un enllaç (Google Forms, Tally, Entradium, Stripe...) -> botó "Inscriu-t'hi"
-       - "whatsapp" -> obre WhatsApp amb un missatge ja escrit
-       - sense camp -> entrada lliure, sense botó
-     places (opcional): text curt, p. ex. "Places limitades" o "12 places · 15 €"
-     destacat: true -> es pinta en lila (inauguració, actes especials) */
-  const WHATSAPP = "34930968669";   // <- número de la llibreria, sense + ni espais
-
-  const AGENDA = [
-    { data:"2026-11-28", hora:"11–21 h", tipus:"Inauguració", destacat:true,
-      titol:"Festa d'inauguració de Cal Gendre",
-      text:"Llibreria oberta i brindis, recital d'Anna Gual i Jaume C. Pons Alorda, lectura en veu alta d'EVA354 i concert acústic d'Amulet.",
-      places:"Entrada lliure" }
-    /* Exemples per copiar quan hi hagi activitats:
-    { data:"2026-12-12", hora:"11 h", tipus:"Taller", titol:"Nom del taller",
-      text:"Descripció curta.", inscripcio:"whatsapp", places:"12 places" },
-    { data:"2026-12-18", hora:"19:30 h", tipus:"Club de lectura", titol:"Club de lectura",
-      text:"Descripció curta.", inscripcio:"https://forms.gle/...", places:"Places limitades" },
-    */
-  ];
-
   const MESOS=["gen","febr","març","abr","maig","juny","jul","ag","set","oct","nov","des"];
   const avui=new Date(); avui.setHours(0,0,0,0);
   const cont=document.getElementById("actes");
