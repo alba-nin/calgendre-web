@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="ca">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Agenda · Cal Gendre 1879</title>
+<meta name="description" content="Calendari d'activitats de Cal Gendre: presentacions, clubs de lectura, tallers i concerts a Santa Margarida i els Monjos.">
+<link rel="icon" type="image/png" href="favicon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Libre+Caslon+Display&family=Libre+Caslon+Text:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+<style>
+  :root{--marro:#5a2e0c;--marro-fosc:#3b1d07;--crema:#f4ecdf;--paper:#fbf8f2;--tinta:#2a1708;--lila:#9b55b8;--max:1080px}
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{font-family:"Libre Caslon Text",Georgia,serif;color:var(--tinta);background:var(--crema);line-height:1.5;font-size:17px}
+  a{color:inherit}
+  button{font:inherit;color:inherit;cursor:pointer}
+  .wrap{max-width:var(--max);margin:0 auto;padding:0 24px}
+  h1,h2,h3{font-family:"Libre Caslon Display",Georgia,serif;font-weight:400;line-height:1.05}
+
+  header.cap{position:sticky;top:0;z-index:30;background:rgba(244,236,223,.95);backdrop-filter:blur(6px);border-bottom:1px solid rgba(90,46,14,.15)}
+  .nav{display:flex;align-items:center;justify-content:space-between;height:68px}
+  .nav img{height:30px}
+  .nav a.tornar{font-size:14px;letter-spacing:.08em;text-transform:uppercase;color:var(--marro);text-decoration:none}
+
+  .hero{background:var(--marro);color:var(--crema);padding:56px 0 64px}
+  .hero h1{font-size:clamp(52px,10vw,104px);text-transform:uppercase}
+  .hero p{margin-top:10px;font-style:italic;opacity:.85}
+
+  .cal-sec{padding:50px 0 30px}
+  .cal-grid{display:grid;grid-template-columns:1.25fr 1fr;gap:34px;align-items:start}
+  .cal{background:var(--paper);padding:24px 24px 20px;box-shadow:0 10px 26px rgba(59,29,7,.1)}
+  .cal-cap{display:flex;align-items:center;justify-content:space-between;margin-bottom:14px}
+  .cal-cap h2{font-size:34px;color:var(--marro);text-transform:capitalize}
+  .cal-cap button{background:none;border:1px solid var(--marro);color:var(--marro);width:42px;height:42px;font-size:20px}
+  .cal-cap button:hover{background:var(--marro);color:var(--crema)}
+  .setmana,.dies{display:grid;grid-template-columns:repeat(7,minmax(0,1fr));gap:4px}
+  .setmana div{text-align:center;font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:#6d4a2d;padding:6px 0}
+  .dia{aspect-ratio:1;border:0;padding:0;min-width:0;background:transparent;position:relative;display:flex;flex-direction:column;align-items:center;justify-content:center;font-size:17px}
+  .dia.fora{color:#bba893}
+  .dia.tancat{color:#a8957f}
+  .dia.avui{outline:1px solid var(--marro);outline-offset:-3px}
+  .dia.ev{background:var(--marro);color:var(--crema)}
+  .dia.ev.esp{background:var(--lila)}
+  .dia.ev:hover{filter:brightness(1.15)}
+  .dia.sel{box-shadow:0 0 0 3px var(--tinta) inset}
+  .dia .punts{position:absolute;bottom:12%;display:flex;gap:3px}
+  .dia .punts i{width:5px;height:5px;border-radius:50%;background:currentColor;opacity:.85}
+  .dia:not(.ev){cursor:default}
+  .llegenda{display:flex;gap:18px;flex-wrap:wrap;font-size:13px;color:#6d4a2d;margin-top:14px}
+  .llegenda span::before{content:"";display:inline-block;width:12px;height:12px;margin-right:6px;vertical-align:-1px;background:var(--marro)}
+  .llegenda .l2::before{background:var(--lila)}
+  .llegenda .l3::before{background:none;outline:1px solid var(--marro)}
+
+  .detall h2{font-size:32px;color:var(--marro);margin-bottom:14px}
+  .acte{background:var(--paper);border-left:6px solid var(--marro);padding:18px 20px;margin-bottom:14px}
+  .acte.lila{border-left-color:var(--lila)}
+  .acte .tipus{display:inline-block;font-size:12px;letter-spacing:.12em;text-transform:uppercase;background:var(--marro);color:var(--crema);padding:2px 8px}
+  .acte.lila .tipus{background:var(--lila)}
+  .acte h3{font-size:25px;margin:8px 0 4px}
+  .acte .quan{font-size:15px;color:#6d4a2d;margin-bottom:6px}
+  .acte p{font-size:16px}
+  .acte .peu{display:flex;align-items:center;gap:14px;flex-wrap:wrap;margin-top:12px}
+  .acte .places{font-size:13px;color:#6d4a2d}
+  .boto{display:inline-block;text-decoration:none;background:var(--marro);color:var(--crema);border:1px solid var(--marro);padding:10px 16px;font-size:13px;letter-spacing:.1em;text-transform:uppercase}
+  .boto:hover{background:var(--lila);border-color:var(--lila)}
+  .buit{font-style:italic;color:#6d4a2d;background:var(--paper);padding:18px 20px}
+
+  .llista{padding:20px 0 80px}
+  .llista h2{font-size:clamp(34px,5vw,50px);color:var(--marro);text-transform:uppercase;margin-bottom:18px}
+  .fila{display:grid;grid-template-columns:90px 1fr;gap:18px;align-items:start}
+  .data{font-family:"Libre Caslon Display",serif;color:var(--marro);text-align:center;line-height:1;padding-top:14px}
+  .data b{display:block;font-size:44px;font-weight:400}
+  .data small{font-size:13px;letter-spacing:.15em;text-transform:uppercase}
+
+  footer{background:var(--marro-fosc);color:rgba(244,236,223,.75);text-align:center;padding:40px 0;font-size:15px}
+  footer img{width:min(380px,80vw);margin:0 auto;display:block}
+
+  @media (max-width:820px){
+    .cal-grid{grid-template-columns:1fr}
+    .cal{padding:16px 12px}
+    .dia{font-size:15px}
+    .nav img{height:22px}
+    .nav a.tornar{font-size:12px}
+    .fila{grid-template-columns:64px 1fr;gap:10px}
+    .data b{font-size:34px}
+  }
+</style>
+</head>
+<body>
+
+<header class="cap">
+  <div class="wrap nav">
+    <a href="index.html"><img src="wordmark_marro.png" alt="Cal Gendre 1879"></a>
+    <a class="tornar" href="index.html">← Inici</a>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="wrap">
+    <h1>Agenda</h1>
+    <p>Presentacions, clubs de lectura, tallers, música i vermuts a Cal Gendre.</p>
+  </div>
+</section>
+
+<section class="cal-sec">
+  <div class="wrap cal-grid">
+    <div class="cal" aria-label="Calendari">
+      <div class="cal-cap">
+        <button id="ant" aria-label="Mes anterior">‹</button>
+        <h2 id="mes"></h2>
+        <button id="seg" aria-label="Mes següent">›</button>
+      </div>
+      <div class="setmana"><div>dl</div><div>dt</div><div>dc</div><div>dj</div><div>dv</div><div>ds</div><div>dg</div></div>
+      <div class="dies" id="dies"></div>
+      <div class="llegenda"><span>Activitat</span><span class="l2">Acte especial</span><span class="l3">Avui</span></div>
+    </div>
+    <div class="detall" id="detall" aria-live="polite"></div>
+  </div>
+</section>
+
+<section class="llista">
+  <div class="wrap">
+    <h2>Properes activitats</h2>
+    <div id="llista"></div>
+  </div>
+</section>
+
+<footer>
+  <img src="logo_adreca_crema.png" alt="Cal Gendre 1879 · Plaça de Pau Casals · Santa Margarida i els Monjos">
+  <p style="margin-top:14px;font-size:13px"><a href="avis-legal.html" style="color:inherit">Avís legal i privacitat</a></p>
+</footer>
+
+<script src="dades.js"></script>
+<script>
+  /* Les activitats s'editen a dades.js */
+  const MESOS=["gener","febrer","març","abril","maig","juny","juliol","agost","setembre","octubre","novembre","desembre"];
+  const CURTS=["gen","febr","març","abr","maig","juny","jul","ag","set","oct","nov","des"];
+  const DIES=["diumenge","dilluns","dimarts","dimecres","dijous","divendres","dissabte"];
+  const TANCAT=[1];                 // dies de la setmana que la llibreria tanca (0=diumenge, 1=dilluns)
+  const $=id=>document.getElementById(id);
+  const esc=s=>String(s||"").replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+  const clau=d=>`${d.getFullYear()}-${String(d.getMonth()+1).padStart(2,"0")}-${String(d.getDate()).padStart(2,"0")}`;
+  const dataDe=s=>new Date(s+"T00:00");
+  const de=m=>/^[aeiou]/.test(m)?"d'"+m:"de "+m;
+
+  const avui=new Date(); avui.setHours(0,0,0,0);
+  const perDia={}; AGENDA.forEach(a=>(perDia[a.data]=perDia[a.data]||[]).push(a));
+  const futurs=AGENDA.filter(a=>dataDe(a.data)>=avui).sort((a,b)=>a.data.localeCompare(b.data));
+
+  function boto(a){
+    if(!a.inscripcio) return "";
+    let url=a.inscripcio;
+    if(url==="whatsapp"){
+      const d=dataDe(a.data);
+      url=`https://wa.me/${WHATSAPP}?text=${encodeURIComponent(`Hola! M'agradaria inscriure'm a "${a.titol}" del ${d.getDate()} ${de(MESOS[d.getMonth()])}. Nom: `)}`;
+    }
+    return `<a class="boto" href="${esc(url)}" target="_blank" rel="noopener">Inscriu-t'hi</a>`;
+  }
+  function targeta(a){
+    const d=dataDe(a.data);
+    return `<article class="acte${a.destacat?" lila":""}"><span class="tipus">${esc(a.tipus)}</span>
+      <h3>${esc(a.titol)}</h3>
+      <div class="quan">${DIES[d.getDay()]} ${d.getDate()} ${de(MESOS[d.getMonth()])}${a.hora?" · "+esc(a.hora):""}</div>
+      <p>${esc(a.text)}</p>
+      <div class="peu">${boto(a)}${a.places?`<span class="places">${esc(a.places)}</span>`:""}</div></article>`;
+  }
+
+  /* mes inicial: el de la propera activitat o l'actual */
+  let vist=futurs.length?dataDe(futurs[0].data):new Date(avui);
+  vist=new Date(vist.getFullYear(),vist.getMonth(),1);
+  let triat=futurs.length?futurs[0].data:null;
+
+  function pintaMes(){
+    $("mes").textContent=`${MESOS[vist.getMonth()]} ${vist.getFullYear()}`;
+    const primer=(vist.getDay()+6)%7, inici=new Date(vist); inici.setDate(1-primer);
+    let html="";
+    const nDies=new Date(vist.getFullYear(),vist.getMonth()+1,0).getDate(), total=Math.ceil((primer+nDies)/7)*7;
+    for(let i=0;i<total;i++){
+      const d=new Date(inici); d.setDate(inici.getDate()+i);
+      const k=clau(d), ev=perDia[k]||[], fora=d.getMonth()!==vist.getMonth();
+      const cls=["dia",fora?"fora":"",ev.length?"ev":"",ev.some(e=>e.destacat)?"esp":"",
+        +d===+avui?"avui":"",k===triat?"sel":"",TANCAT.includes(d.getDay())&&!ev.length?"tancat":""].filter(Boolean).join(" ");
+      const etiqueta=`${d.getDate()} ${de(MESOS[d.getMonth()])}`+(ev.length?`: ${ev.map(e=>e.titol).join(", ")}`:"");
+      html+=`<button class="${cls}" data-k="${k}" aria-label="${esc(etiqueta)}" ${ev.length?"":'tabindex="-1"'}>${d.getDate()}${ev.length?`<span class="punts">${ev.map(()=>"<i></i>").join("")}</span>`:""}</button>`;
+    }
+    $("dies").innerHTML=html;
+  }
+  function pintaDetall(){
+    if(!triat){
+      $("detall").innerHTML=`<h2>Aviat, noves activitats</h2><p class="buit">Encara no hi ha cap activitat programada. Segueix-nos a <a href="https://www.instagram.com/calgendre1879" target="_blank" rel="noopener">Instagram</a> per assabentar-te'n la primera.</p>`;
+      return;
+    }
+    const d=dataDe(triat);
+    $("detall").innerHTML=`<h2>${DIES[d.getDay()]} ${d.getDate()} ${de(MESOS[d.getMonth()])}</h2>`+(perDia[triat]||[]).map(targeta).join("");
+  }
+  $("dies").addEventListener("click",e=>{
+    const b=e.target.closest(".dia.ev"); if(!b) return;
+    triat=b.dataset.k; pintaMes(); pintaDetall();
+    if(innerWidth<820) $("detall").scrollIntoView({behavior:"smooth",block:"start"});
+  });
+  $("ant").onclick=()=>{ vist.setMonth(vist.getMonth()-1); pintaMes(); };
+  $("seg").onclick=()=>{ vist.setMonth(vist.getMonth()+1); pintaMes(); };
+
+  $("llista").innerHTML=futurs.length
+    ? futurs.map(a=>{const d=dataDe(a.data);return `<div class="fila"><div class="data"><b>${d.getDate()}</b><small>${CURTS[d.getMonth()]}</small></div>${targeta(a)}</div>`}).join("")
+    : `<p class="buit">Aviat anunciarem noves activitats.</p>`;
+
+  pintaMes(); pintaDetall();
+</script>
+</body>
+</html>
