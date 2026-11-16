@@ -1,0 +1,23 @@
+# Construeix "Actualitza la web.exe" per a Windows.
+# Es llança sol quan canvia el programa, o a mà des de la pestanya Actions → "Run workflow".
+# L'.exe es descarrega des de la pàgina de l'execució, a "Artifacts".
+name: Actualitzador (.exe)
+on:
+  workflow_dispatch:
+  push:
+    paths: ["actualitzador/actualitza_cataleg.py"]
+jobs:
+  exe:
+    runs-on: windows-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with: { python-version: "3.12" }
+      - run: pip install pyinstaller openpyxl xlrd
+      - run: pyinstaller --onefile --windowed --name "Actualitza la web" actualitzador/actualitza_cataleg.py
+      - uses: actions/upload-artifact@v4
+        with:
+          name: actualitzador-windows
+          path: |
+            dist/Actualitza la web.exe
+            actualitzador/config.exemple.ini

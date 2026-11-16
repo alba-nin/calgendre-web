@@ -1,14 +1,35 @@
 # Web de Cal Gendre 1879
 
 ```
-index.html                 pàgina principal
-cataleg.html               catàleg de llibres
-cataleg.csv                (el crea l'actualitzador) llibres en estoc
-cataleg-info.json          (el crea l'actualitzador) data de l'última actualització
-img/                       fotos i logos (marró i crema, PNG transparents)
-actualitzador/             programa per actualitzar el catàleg des de Galatea
-.github/workflows/         construeix l'actualitzador com a .exe per a Windows
+index.html, cataleg.html, agenda.html, socis.html, avis-legal.html   ← pàgines (no cal tocar-les)
+contingut.js                ← llegeix els textos de contingut/ i els posa a les pàgines
+contingut/                  ← ★ TEXTOS EDITABLES (veure COM-EDITAR.md)
+   general.json             ← telèfon, correu, adreça, horaris
+   inici.json               ← textos de l'inici, paquet lector, carta
+   agenda.json              ← activitats
+img/                        ← fotos i logos
+actualitzador/              ← programa per actualitzar el catàleg des de Galatea
+documentacio/               ← guia d'Amics i flyers
+.github/workflows/          ← construeix l'actualitzador com a .exe
+cataleg.csv, cataleg-info.json  ← (els crea l'actualitzador)
 ```
+
+**Per canviar textos, horaris o activitats → `COM-EDITAR.md`.**
+
+### Substituir el contingut del repositori per aquesta versió
+
+Amb git (recomanat, conserva les carpetes):
+```bash
+git clone https://github.com/alba-nin/calgendre-web
+cd calgendre-web
+git rm -r -q .                       # treu els fitxers antics (no toca .git)
+cp -r /ruta/al/zip/calgendre-web/. .  # copia la versió nova, inclosos .gitignore i .github
+git add -A && git commit -m "Web organitzada en carpetes i textos editables" && git push
+```
+Sense git: a GitHub, *Add file → Upload files* i arrossega **les carpetes** (`img`, `contingut`…)
+des de l'explorador, no els fitxers d'un en un (si no, GitHub les aplana).
+Els fitxers que comencen per punt (`.gitignore`, `.github`) s'han de crear a mà
+(*Add file → Create new file*) si l'explorador no els mostra.
 
 ---
 

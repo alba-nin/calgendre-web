@@ -1,0 +1,32 @@
+{
+  "telefon": "930 968 669",
+  "whatsapp": "34930968669",
+  "email": "llibreria@calgendre.cat",
+  "instagram": "calgendre1879",
+  "adreca": "Raval de Sant Martí, 15 (plaça de Pau Casals)",
+  "poblacio": "08730 Santa Margarida i els Monjos",
+  "horaris": [
+    {
+      "dies": "Dilluns",
+      "hores": "Tancat"
+    },
+    {
+      "dies": "Dimarts – Dijous",
+      "hores": "9:00 – 13:30 · 17:00 – 20:00"
+    },
+    {
+      "dies": "Divendres",
+      "hores": "9:00 – 13:30 · 17:00 – 21:00"
+    },
+    {
+      "dies": "Dissabte",
+      "hores": "10:00 – 13:30 · 17:00 – 21:00"
+    },
+    {
+      "dies": "Diumenge",
+      "hores": "10:00 – 14:30"
+    }
+  ],
+  "nota_visita": "Encàrrecs de llibres i reserves per a activitats: per WhatsApp o a la mateixa llibreria.",
+  "cataleg_proximament": true
+}

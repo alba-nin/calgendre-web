@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Agenda · Cal Gendre 1879</title>
 <meta name="description" content="Calendari d'activitats de Cal Gendre: presentacions, clubs de lectura, tallers i concerts a Santa Margarida i els Monjos.">
-<link rel="icon" type="image/png" href="favicon.png">
+<link rel="icon" type="image/png" href="img/favicon.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Libre+Caslon+Display&family=Libre+Caslon+Text:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
@@ -92,7 +92,7 @@
 
 <header class="cap">
   <div class="wrap nav">
-    <a href="index.html"><img src="wordmark_marro.png" alt="Cal Gendre 1879"></a>
+    <a href="index.html"><img src="img/wordmark_marro.png" alt="Cal Gendre 1879"></a>
     <a class="tornar" href="index.html">← Inici</a>
   </div>
 </header>
@@ -128,13 +128,16 @@
 </section>
 
 <footer>
-  <img src="logo_adreca_crema.png" alt="Cal Gendre 1879 · Plaça de Pau Casals · Santa Margarida i els Monjos">
+  <img src="img/logo_adreca_crema.png" alt="Cal Gendre 1879 · Plaça de Pau Casals · Santa Margarida i els Monjos">
   <p style="margin-top:14px;font-size:13px"><a href="avis-legal.html" style="color:inherit">Avís legal i privacitat</a></p>
 </footer>
 
-<script src="dades.js"></script>
+<script src="contingut.js"></script>
 <script>
-  /* Les activitats s'editen a dades.js */
+/* Les activitats s'editen a contingut/agenda.json */
+CONTINGUT.then(CG=>{
+  const AGENDA=CG.agenda.filter(a=>a.titol&&/^\d{4}-\d{2}-\d{2}$/.test(a.data));
+  const WHATSAPP=(CG.general&&CG.general.whatsapp)||"34930968669";
   const MESOS=["gener","febrer","març","abril","maig","juny","juliol","agost","setembre","octubre","novembre","desembre"];
   const CURTS=["gen","febr","març","abr","maig","juny","jul","ag","set","oct","nov","des"];
   const DIES=["diumenge","dilluns","dimarts","dimecres","dijous","divendres","dissabte"];
@@ -183,7 +186,7 @@
     return `<article class="acte${a.destacat?" lila":""}"><span class="tipus">${esc(a.tipus)}</span>
       <h3>${esc(a.titol)}</h3>
       <div class="quan">${DIES[d.getDay()]} ${d.getDate()} ${de(MESOS[d.getMonth()])}${a.hora?" · "+esc(a.hora):""}</div>
-      <p>${esc(a.text)}</p>
+      <p>${fmt(a.text)}</p>
       <div class="peu">${boto(a)}<a class="boto buit" href="${esc(gcal(a))}" target="_blank" rel="noopener">📅 Afegeix al meu calendari</a>${a.places?`<span class="places">${esc(a.places)}</span>`:""}</div></article>`;
   }
 
@@ -228,6 +231,7 @@
     : `<p class="buit">Aviat anunciarem noves activitats.</p>`;
 
   pintaMes(); pintaDetall();
+});
 </script>
 </body>
 </html>

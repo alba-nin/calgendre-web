@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Cal Gendre 1879 · Llibreria, cafeteria i espai cultural</title>
 <meta name="description" content="Cal Gendre 1879: llibreria, cafeteria i espai cultural a la plaça de Pau Casals (Raval de Sant Martí, 15) de Santa Margarida i els Monjos, al Penedès.">
-<link rel="icon" type="image/png" href="favicon.png">
+<link rel="icon" type="image/png" href="img/favicon.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Libre+Caslon+Display&family=Libre+Caslon+Text:ital,wght@0,400;0,700;1,400&family=Special+Elite&display=swap" rel="stylesheet">
@@ -86,7 +86,7 @@
   .visita{background:var(--marro);color:var(--crema);padding:90px 0}
   .visita .titol-sec{color:var(--crema)}
   .visita-grid{display:grid;grid-template-columns:1.1fr 1fr;gap:50px;align-items:start}
-  .maquina{background:url('maquina.jpg') center/cover;min-height:320px;display:flex;align-items:flex-end}
+  .maquina{background:url('img/maquina.jpg') center/cover;min-height:320px;display:flex;align-items:flex-end}
   .adreca{background:#efe6d6;color:var(--tinta);padding:26px 30px;margin:0 24px -30px;transform:rotate(-1.5deg);font-size:21px;line-height:1.5;box-shadow:0 10px 24px rgba(0,0,0,.25)}
   .horaris{width:100%;border-collapse:collapse;margin:8px 0 30px}
   .horaris td{padding:9px 0;border-bottom:1px solid rgba(244,236,223,.25)}
@@ -148,6 +148,7 @@
   .paquet ol{margin:14px 0 14px 22px}
   .paquet li{margin-bottom:8px}
   .paquet li::marker{color:#d8a73a;font-family:"Libre Caslon Display",serif}
+  .preu-paquet{font-family:"Libre Caslon Display",serif;font-size:30px;color:#d8a73a;margin:6px 0}
   .paquet .nota{font-style:italic;opacity:.8;font-size:16px}
   .paquet-boto{margin-top:22px;background:#d8a73a;color:var(--marro-fosc);border-color:#d8a73a;font-size:15px;padding:14px 24px}
   .paquet-boto:hover{background:var(--crema);border-color:var(--crema);color:var(--marro)}
@@ -224,7 +225,7 @@
 
 <header>
   <div class="wrap nav">
-    <a class="marca" href="#inici"><img src="wordmark_marro.png" alt="Cal Gendre 1879"></a>
+    <a class="marca" href="#inici"><img src="img/wordmark_marro.png" alt="Cal Gendre 1879"></a>
     <nav>
       <button class="menu-btn" id="menuBtn" aria-expanded="false">Menú</button>
       <ul id="menu">
@@ -241,10 +242,10 @@
 
 <section class="hero" id="inici">
   <div class="wrap">
-    <img class="drac" src="drac_crema.png" alt="">
-    <h1 class="logo-h1"><img src="logo_monjos_crema.png" alt="Cal Gendre 1879 · Llibreria Els Monjos"></h1>
-    <p class="lema">Llibreria · Cafeteria · Espai cultural</p>
-    <p class="lloc">Santa Margarida i els Monjos, Penedès</p>
+    <img class="drac" src="img/drac_crema.png" alt="">
+    <h1 class="logo-h1"><img src="img/logo_monjos_crema.png" alt="Cal Gendre 1879 · Llibreria Els Monjos"></h1>
+    <p class="lema" data-c="inici.portada.lema">Llibreria · Cafeteria · Espai cultural</p>
+    <p class="lloc" data-c="inici.portada.lloc">Santa Margarida i els Monjos, Penedès</p>
   </div>
 </section>
 
@@ -268,51 +269,51 @@
     <h2 class="titol-sec">L'espai</h2>
     <p class="sub">Així serà Cal Gendre: llum, fusta, rajola i racons per quedar-s'hi.</p>
     <div class="galeria">
-      <figure class="g1"><img src="facana.jpg" alt="Façana de Cal Gendre" loading="lazy"><figcaption>La façana</figcaption></figure>
-      <figure class="g2"><img src="butaques.jpg" alt="Zona de lectura amb butaques" loading="lazy"><figcaption>Racó de lectura</figcaption></figure>
-      <figure class="g3"><img src="sala.jpg" alt="Sala amb sofàs i finestral" loading="lazy"><figcaption>La sala de dalt</figcaption></figure>
-      <figure class="g4"><img src="escala.jpg" alt="Planta baixa i escala" loading="lazy"><figcaption>Planta baixa</figcaption></figure>
-      <figure class="g5"><img src="infantil.jpg" alt="Espai infantil" loading="lazy"><figcaption>Espai infantil</figcaption></figure>
-      <figure class="g6"><img src="pis.jpg" alt="Primer pis amb volta catalana" loading="lazy"><figcaption>El primer pis</figcaption></figure>
-      <figure class="g7"><img src="corredor.jpg" alt="Passadís entre prestatgeries" loading="lazy"><figcaption>Entre prestatgeries</figcaption></figure>
+      <figure class="g1"><img src="img/facana.jpg" alt="Façana de Cal Gendre" loading="lazy"><figcaption>La façana</figcaption></figure>
+      <figure class="g2"><img src="img/butaques.jpg" alt="Zona de lectura amb butaques" loading="lazy"><figcaption>Racó de lectura</figcaption></figure>
+      <figure class="g3"><img src="img/sala.jpg" alt="Sala amb sofàs i finestral" loading="lazy"><figcaption>La sala de dalt</figcaption></figure>
+      <figure class="g4"><img src="img/escala.jpg" alt="Planta baixa i escala" loading="lazy"><figcaption>Planta baixa</figcaption></figure>
+      <figure class="g5"><img src="img/infantil.jpg" alt="Espai infantil" loading="lazy"><figcaption>Espai infantil</figcaption></figure>
+      <figure class="g6"><img src="img/pis.jpg" alt="Primer pis amb volta catalana" loading="lazy"><figcaption>El primer pis</figcaption></figure>
+      <figure class="g7"><img src="img/corredor.jpg" alt="Passadís entre prestatgeries" loading="lazy"><figcaption>Entre prestatgeries</figcaption></figure>
     </div>
     <p class="credit">Imatges virtuals del projecte: taller43720 i mm_render.</p>
   </div>
 </section>
 
 <section class="som" id="llibreria">
-  <div class="foto" style="background-image:url('llibres.jpg')"></div>
+  <div class="foto" style="background-image:url('img/llibres.jpg')"></div>
   <div class="targeta">
     <div class="faixa"><h2>Som una<br>llibreria</h2></div>
     <div class="paper">
-      <p>Dona el sentit a l'espai: els <b>llibres</b> com a font de preguntes, de conversa i de gaudi compartit.</p>
-      <p style="margin-top:12px"><u>Llegir pot esdevenir-se trobada.</u></p>
-      <p class="mes">Narrativa, assaig, poesia, infantil i llibre de segona mà. Si no el tenim, te l'encarreguem. I si és per regalar, mira el <a href="#paquet">paquet lector</a>.</p>
+      <p data-c="inici.llibreria.text">Dona el sentit a l'espai: els <b>llibres</b> com a font de preguntes, de conversa i de gaudi compartit.</p>
+      <p style="margin-top:12px" data-c="inici.llibreria.frase"><u>Llegir pot esdevenir-se trobada.</u></p>
+      <p class="mes"><span data-c="inici.llibreria.detall">Narrativa, assaig, poesia, infantil i llibre de segona mà. Si no el tenim, te l'encarreguem.</span> I si és per regalar, mira el <a href="#paquet">paquet lector</a>.</p>
       <p style="margin-top:20px"><a class="boto ple" href="cataleg.html" style="background:var(--marro);color:var(--crema);border-color:var(--marro)">Consulta el catàleg</a></p>
     </div>
   </div>
 </section>
 
 <section class="som dreta" id="cafeteria">
-  <div class="foto" style="background-image:url('vermut.jpg');background-position:center 47%"></div>
+  <div class="foto" style="background-image:url('img/vermut.jpg');background-position:center 47%"></div>
   <div class="targeta">
     <div class="faixa"><h2>Som una<br>cafeteria</h2></div>
     <div class="paper">
-      <p>Una cafeteria que dona <u>temps</u>: un espai càlid on quedar-se, habitar la pausa i fer de la quotidianitat un lloc de recer i comunitat.</p>
-      <p class="mes">Cafè, esmorzars, berenars i vermut amb vins i productes del Penedès.</p>
+      <p data-c="inici.cafeteria.text">Una cafeteria que dona <u>temps</u>: un espai càlid on quedar-se, habitar la pausa i fer de la quotidianitat un lloc de recer i comunitat.</p>
+      <p class="mes" data-c="inici.cafeteria.detall">Cafè, esmorzars, berenars i vermut amb vins i productes del Penedès.</p>
       <p style="margin-top:18px"><a class="boto ple" href="#carta" style="background:var(--marro);color:var(--crema);border-color:var(--marro)">Mira la carta</a></p>
     </div>
   </div>
 </section>
 
 <section class="som" id="cultura">
-  <div class="foto" style="background-image:url('obrir.jpg');background-position:center 75%"></div>
+  <div class="foto" style="background-image:url('img/obrir.jpg');background-position:center 75%"></div>
   <div class="targeta">
     <div class="faixa"><h2>Som un espai<br>cultural</h2></div>
     <div class="paper">
-      <p>Un espai que convida a aturar-se i a pensar: <u>la calma</u>, <u>la bellesa</u> i <u>l'esperit crític</u> com a punt de partida.</p>
-      <p style="margin-top:12px">Un lloc on la cultura pren moltes <b>formes</b>.</p>
-      <p class="mes">Presentacions de llibres, clubs de lectura, vermuts literaris, tallers i música petita.</p>
+      <p data-c="inici.cultura.text">Un espai que convida a aturar-se i a pensar: <u>la calma</u>, <u>la bellesa</u> i <u>l'esperit crític</u> com a punt de partida.</p>
+      <p style="margin-top:12px" data-c="inici.cultura.frase">Un lloc on la cultura pren moltes <b>formes</b>.</p>
+      <p class="mes" data-c="inici.cultura.detall">Presentacions de llibres, clubs de lectura, vermuts literaris, tallers i música petita.</p>
     </div>
   </div>
 </section>
@@ -320,23 +321,24 @@
 <section class="paquet" id="paquet">
   <div class="wrap paquet-in">
     <div class="paquet-fotos">
-      <img class="f1" src="paquet_capsa.jpg" alt="La capsa del paquet lector, tancada amb un cordill" loading="lazy">
-      <img class="f2" src="paquet_reel.jpg" alt="Interior del paquet lector: llibre, tassa, espelma i segell exlibris" loading="lazy">
-      <img class="f3" src="paquet_segell.jpg" alt="Segell exlibris marcant un llibre" loading="lazy">
+      <img class="f1" src="img/paquet_capsa.jpg" alt="La capsa del paquet lector, tancada amb un cordill" loading="lazy">
+      <img class="f2" src="img/paquet_reel.jpg" alt="Interior del paquet lector: llibre, tassa, espelma i segell exlibris" loading="lazy">
+      <img class="f3" src="img/paquet_segell.jpg" alt="Segell exlibris marcant un llibre" loading="lazy">
     </div>
     <div class="paquet-text">
-      <small>Per regalar o per autoregalar-te</small>
-      <h2>El paquet lector</h2>
-      <p>Una capsa per gaudir de la lectura amb calma. Dins hi trobaràs:</p>
-      <ol>
+      <small data-c="inici.paquet.subtitol">Per regalar o per autoregalar-te</small>
+      <h2 data-c="inici.paquet.titol">El paquet lector</h2>
+      <p data-c="inici.paquet.intro">Una capsa per gaudir de la lectura amb calma. Dins hi trobaràs:</p>
+      <ol data-llista="inici.paquet.contingut">
         <li><b>El llibre</b> que hagis escollit.</li>
         <li>Una <b>tassa</b> per al cafè o el te, perquè en una lectura plàcida no hi pot faltar.</li>
         <li>Una <b>espelma</b> per fer un bon ambient lector.</li>
         <li>Un <b>segell exlibris</b> per marcar els llibres de la teva biblioteca personal.</li>
         <li>Un <b>bloc de notes</b> per apuntar i marcar els passatges que més t'agradin.</li>
       </ol>
-      <p class="nota">Els complements van canviant segons la demanda, la campanya o el maridatge amb el llibre.</p>
-      <a class="boto paquet-boto" id="paquetWA" href="#" target="_blank" rel="noopener">Demana el teu paquet</a>
+      <p class="preu-paquet" data-c="inici.paquet.preu"></p>
+      <p class="nota" data-c="inici.paquet.nota">Els complements van canviant segons la demanda, la campanya o el maridatge amb el llibre.</p>
+      <a class="boto paquet-boto" id="paquetWA" data-wa="Hola Cal Gendre! M'interessa el paquet lector." href="https://wa.me/34930968669" target="_blank" rel="noopener">Demana el teu paquet</a>
     </div>
   </div>
 </section>
@@ -344,9 +346,9 @@
 <section class="carta aviat" id="carta"><!-- treu "aviat" per mostrar la carta -->
   <div class="wrap">
     <h2 class="titol-sec">La carta</h2>
-    <p class="sub">Curta, de proximitat i feta amb calma.</p>
+    <p class="sub" data-c="inici.carta.subtitol">Curta, de proximitat i feta amb calma.</p>
     <div class="carta-cont">
-    <div class="carta-grid">
+    <div class="carta-grid" data-carta>
       <div>
         <h3>Cafès i infusions</h3>
         <ul>
@@ -393,11 +395,11 @@
 
 <section class="amics" id="amics">
   <div class="wrap amics-in">
-    <img src="drac_crema.png" alt="">
+    <img src="img/drac_crema.png" alt="">
     <div>
       <small>Nou</small>
-      <h2>Fes-te Amic de Cal Gendre</h2>
-      <p>Una quota de 5, 10 o 20 € al mes: el 80 % es converteix en saldo per gastar en llibres i el 20 % dona suport a la llibreria. A més, un 5 % de descompte en llibres. El saldo no caduca mai.</p>
+      <h2 data-c="inici.amics.titol">Fes-te Amic de Cal Gendre</h2>
+      <p data-c="inici.amics.text">Una quota de 5, 10 o 20 € al mes: el 80 % es converteix en saldo per gastar en llibres i el 20 % dona suport a la llibreria. A més, un 5 % de descompte en llibres. El saldo no caduca mai.</p>
     </div>
     <a class="boto" href="socis.html">Vull ser-ne</a>
   </div>
@@ -405,15 +407,15 @@
 
 <section class="insta" id="instagram">
   <div class="wrap">
-    <h2 class="titol-sec">Vols veure què ha passat a la llibreria?</h2>
-    <p class="sub" style="margin-bottom:0">Presentacions, vermuts, novetats i el dia a dia de Cal Gendre, a Instagram.</p>
+    <h2 class="titol-sec" data-c="inici.instagram.titol">Vols veure què ha passat a la llibreria?</h2>
+    <p class="sub" style="margin-bottom:0" data-c="inici.instagram.text">Presentacions, vermuts, novetats i el dia a dia de Cal Gendre, a Instagram.</p>
     <div class="insta-grid">
-      <a href="https://www.instagram.com/calgendre1879" target="_blank" rel="noopener"><img src="llibres.jpg" alt="Llibres antics a Cal Gendre" loading="lazy"></a>
-      <a href="https://www.instagram.com/calgendre1879" target="_blank" rel="noopener"><img src="vermut.jpg" alt="Vermut a Cal Gendre" loading="lazy"></a>
-      <a href="https://www.instagram.com/calgendre1879" target="_blank" rel="noopener"><img src="facana.jpg" alt="Façana de Cal Gendre" loading="lazy"></a>
-      <a href="https://www.instagram.com/calgendre1879" target="_blank" rel="noopener"><img src="maquina.jpg" alt="Màquina d'escriure amb l'adreça de Cal Gendre" loading="lazy"></a>
-      <a href="https://www.instagram.com/calgendre1879" target="_blank" rel="noopener"><img src="infantil.jpg" alt="Espai infantil" loading="lazy"></a>
-      <a href="https://www.instagram.com/calgendre1879" target="_blank" rel="noopener"><img src="obrir.jpg" alt="Obrir una llibreria" loading="lazy"></a>
+      <a href="https://www.instagram.com/calgendre1879" target="_blank" rel="noopener"><img src="img/llibres.jpg" alt="Llibres antics a Cal Gendre" loading="lazy"></a>
+      <a href="https://www.instagram.com/calgendre1879" target="_blank" rel="noopener"><img src="img/vermut.jpg" alt="Vermut a Cal Gendre" loading="lazy"></a>
+      <a href="https://www.instagram.com/calgendre1879" target="_blank" rel="noopener"><img src="img/facana.jpg" alt="Façana de Cal Gendre" loading="lazy"></a>
+      <a href="https://www.instagram.com/calgendre1879" target="_blank" rel="noopener"><img src="img/maquina.jpg" alt="Màquina d'escriure amb l'adreça de Cal Gendre" loading="lazy"></a>
+      <a href="https://www.instagram.com/calgendre1879" target="_blank" rel="noopener"><img src="img/infantil.jpg" alt="Espai infantil" loading="lazy"></a>
+      <a href="https://www.instagram.com/calgendre1879" target="_blank" rel="noopener"><img src="img/obrir.jpg" alt="Obrir una llibreria" loading="lazy"></a>
     </div>
     <a class="usuari" href="https://www.instagram.com/calgendre1879" target="_blank" rel="noopener">@calgendre1879</a><br>
     <a class="boto" href="https://www.instagram.com/calgendre1879" target="_blank" rel="noopener">Segueix-nos a Instagram</a>
@@ -423,62 +425,66 @@
 <section class="visita" id="visita">
   <div class="wrap visita-grid">
     <div class="maquina">
-      <div class="adreca maq">Cal Gendre 1879<br>Raval de Sant Martí, 15<br>(plaça de Pau Casals)<br>08730 Santa Margarida<br>i els Monjos</div>
+      <div class="adreca maq" data-adreca="linies">Cal Gendre 1879<br>Raval de Sant Martí, 15<br>(plaça de Pau Casals)<br>08730 Santa Margarida<br>i els Monjos</div>
     </div>
     <div>
       <h2 class="titol-sec">Visita'ns</h2>
-      <table class="horaris">
+      <table class="horaris" data-horaris>
         <tr><td>Dilluns</td><td>Tancat</td></tr>
         <tr><td>Dimarts – Dijous</td><td>9:00 – 13:30 · 17:00 – 20:00</td></tr>
         <tr><td>Divendres</td><td>9:00 – 13:30 · 17:00 – 21:00</td></tr>
-        <tr><td>Dissabte</td><td>10:00 – 14:00 · 17:00 – 21:00</td></tr>
-        <tr><td>Diumenge</td><td>10:00 – 14:00</td></tr>
+        <tr><td>Dissabte</td><td>10:00 – 13:30 · 17:00 – 21:00</td></tr>
+        <tr><td>Diumenge</td><td>10:00 – 14:30</td></tr>
       </table>
       <div class="botons">
         <a class="boto ple" href="https://www.google.com/maps/search/?api=1&query=Raval+de+Sant+Mart%C3%AD+15+Santa+Margarida+i+els+Monjos" target="_blank" rel="noopener">Com arribar-hi</a>
         <a class="boto" href="https://www.instagram.com/calgendre1879" target="_blank" rel="noopener">Instagram</a>
-        <a class="boto" id="waBtn" href="#" target="_blank" rel="noopener">WhatsApp</a>
+        <a class="boto" id="waBtn" data-wa="" href="https://wa.me/34930968669" target="_blank" rel="noopener">WhatsApp</a>
       </div>
-      <p style="margin-top:22px;font-size:15px;opacity:.85">Encàrrecs de llibres i reserves per a activitats: per WhatsApp o a la mateixa llibreria.</p>
+      <p style="margin-top:22px;font-size:15px;opacity:.85" data-c="general.nota_visita">Encàrrecs de llibres i reserves per a activitats: per WhatsApp o a la mateixa llibreria.</p>
     </div>
   </div>
 </section>
 
 <footer>
-  <img src="logo_adreca_crema.png" alt="Cal Gendre 1879 · Plaça de Pau Casals · Santa Margarida i els Monjos">
-  <p>Cal Gendre 1879 · Raval de Sant Martí, 15 (plaça de Pau Casals) · 08730 Santa Margarida i els Monjos</p>
-  <p style="margin-top:6px"><a href="tel:+34930968669" style="color:inherit">930 968 669</a> · <a href="mailto:llibreria@calgendre.cat" style="color:inherit">llibreria@calgendre.cat</a></p>
+  <img src="img/logo_adreca_crema.png" alt="Cal Gendre 1879 · Plaça de Pau Casals · Santa Margarida i els Monjos">
+  <p>Cal Gendre 1879 · <span data-adreca>Raval de Sant Martí, 15 (plaça de Pau Casals) · 08730 Santa Margarida i els Monjos</span></p>
+  <p style="margin-top:6px"><a data-tel href="tel:+34930968669" style="color:inherit">930 968 669</a> · <a data-mail href="mailto:llibreria@calgendre.cat" style="color:inherit">llibreria@calgendre.cat</a></p>
   <p style="margin-top:6px">Llibreria · Cafeteria · Espai cultural</p>
   <p style="margin-top:14px;font-size:13px"><a href="avis-legal.html" style="color:inherit">Avís legal i privacitat</a></p>
 </footer>
 
-<script src="dades.js"></script>
+<script src="contingut.js"></script>
 <script>
   const MESOS=["gen","febr","març","abr","maig","juny","jul","ag","set","oct","nov","des"];
   const avui=new Date(); avui.setHours(0,0,0,0);
   const cont=document.getElementById("actes");
-  const futurs=AGENDA.filter(a=>new Date(a.data+"T00:00")>=avui).sort((a,b)=>a.data.localeCompare(b.data));
-  function botoInscripcio(a,d){
-    if(!a.inscripcio) return "";
-    let url=a.inscripcio;
-    if(url==="whatsapp"){
-      const msg=`Hola! M'agradaria inscriure'm a "${a.titol}" del ${d.getDate()} de ${MESOS[d.getMonth()]}. Nom: `;
-      url=`https://wa.me/${WHATSAPP}?text=${encodeURIComponent(msg)}`;
+  CONTINGUT.then(CG=>{
+    const WA=(CG.general&&CG.general.whatsapp)||"34930968669";
+    const futurs=CG.agenda.filter(a=>a.titol&&new Date(a.data+"T00:00")>=avui).sort((a,b)=>a.data.localeCompare(b.data));
+    function botoInscripcio(a,d){
+      if(!a.inscripcio) return "";
+      let url=a.inscripcio;
+      if(url==="whatsapp"){
+        const msg=`Hola! M'agradaria inscriure'm a "${a.titol}" del ${d.getDate()} de ${MESOS[d.getMonth()]}. Nom: `;
+        url=`https://wa.me/${WA}?text=${encodeURIComponent(msg)}`;
+      }
+      return `<a class="boto petit ple" href="${esc(url)}" target="_blank" rel="noopener">Inscriu-t'hi</a>`;
     }
-    return `<a class="boto petit ple" href="${url}" target="_blank" rel="noopener">Inscriu-t'hi</a>`;
-  }
-  if(!futurs.length){
-    cont.innerHTML='<p class="avis-buit">Aviat anunciarem noves activitats. Segueix-nos a Instagram!</p>';
-  } else {
-    futurs.forEach(a=>{
+    if(!futurs.length){
+      cont.innerHTML='<p class="avis-buit">Aviat anunciarem noves activitats. Segueix-nos a Instagram!</p>';
+      return;
+    }
+    cont.innerHTML="";
+    futurs.slice(0,4).forEach(a=>{
       const d=new Date(a.data+"T00:00");
       const el=document.createElement("article"); el.className="acte"+(a.destacat?" lila":"");
       el.innerHTML=`<div class="data"><b>${d.getDate()}</b><small>${MESOS[d.getMonth()]}</small></div>
-        <div><span class="tipus">${a.tipus}</span><h3>${a.titol}</h3><p>${a.hora?a.hora+" · ":""}${a.text}</p></div>
-        <div class="accio">${botoInscripcio(a,d)}${a.places?`<span class="places">${a.places}</span>`:""}</div>`;
+        <div><span class="tipus">${esc(a.tipus)}</span><h3>${esc(a.titol)}</h3><p>${a.hora?esc(a.hora)+" · ":""}${fmt(a.text)}</p></div>
+        <div class="accio">${botoInscripcio(a,d)}${a.places?`<span class="places">${esc(a.places)}</span>`:""}</div>`;
       cont.appendChild(el);
     });
-  }
+  });
 
   /* Compte enrere de la inauguració */
   const INAUG=new Date("2026-11-28T00:00");
@@ -488,8 +494,6 @@
   else if(dies===0) f.textContent="És avui! T'esperem.";
   else { document.getElementById("inauguracio").style.display="none";
           }
-  document.getElementById("waBtn").href=`https://wa.me/${WHATSAPP}`;
-  document.getElementById("paquetWA").href=`https://wa.me/${WHATSAPP}?text=${encodeURIComponent("Hola Cal Gendre! M'interessa el paquet lector.")}`;
 
   const btn=document.getElementById("menuBtn"), menu=document.getElementById("menu");
   btn.addEventListener("click",()=>{const o=menu.classList.toggle("obert");btn.setAttribute("aria-expanded",o)});

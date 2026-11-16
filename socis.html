@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Amics de Cal Gendre · Cal Gendre 1879</title>
 <meta name="description" content="Fes-te Amic de Cal Gendre: amb una quota de 5, 10 o 20 € al mes, el 80 % es converteix en saldo per a llibres i el 20 % dona suport a la llibreria. A més, un 5 % de descompte en llibres.">
-<link rel="icon" type="image/png" href="favicon.png">
+<link rel="icon" type="image/png" href="img/favicon.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Libre+Caslon+Display&family=Libre+Caslon+Text:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
@@ -124,14 +124,14 @@
 
 <header class="cap">
   <div class="wrap nav">
-    <a href="index.html"><img src="wordmark_marro.png" alt="Cal Gendre 1879"></a>
+    <a href="index.html"><img src="img/wordmark_marro.png" alt="Cal Gendre 1879"></a>
     <a class="tornar" href="index.html">← Tornar a l'inici</a>
   </div>
 </header>
 
 <section class="hero">
   <div class="wrap">
-    <img src="drac_crema.png" alt="">
+    <img src="img/drac_crema.png" alt="">
     <small>Cal Gendre 1879</small>
     <h1>Amics de<br>Cal Gendre</h1>
     <p>Una quota cada mes que es converteix en saldo per gastar en llibres i que, alhora, ajuda a fer créixer la llibreria del poble.</p>
@@ -286,10 +286,11 @@
 </section>
 
 <footer>
-  <img src="logo_adreca_crema.png" alt="Cal Gendre 1879 · Plaça de Pau Casals · Santa Margarida i els Monjos">
+  <img src="img/logo_adreca_crema.png" alt="Cal Gendre 1879 · Plaça de Pau Casals · Santa Margarida i els Monjos">
   <p style="margin-top:14px;font-size:13px"><a href="avis-legal.html" style="color:inherit">Avís legal i privacitat</a></p>
 </footer>
 
+<script src="contingut.js"></script>
 <script>
   /* ===================== CONFIGURACIÓ =====================
      Les altes s'envien a un Formulari de Google (les respostes queden en un full de càlcul).
@@ -300,7 +301,8 @@
     quota:"", periode:"", nom:"", dni:"", tel:"", mail:"", adreca:"", cp:"", poblacio:"",
     iban:"", titular:"", mandat:""
   };
-  const EMAIL = "llibreria@calgendre.cat";
+  let EMAIL = "llibreria@calgendre.cat";   // es llegeix de contingut/general.json
+  CONTINGUT.then(CG=>{ if(CG.general&&CG.general.email) EMAIL=CG.general.email; });
   const SALDO = 0.80;            // part de la quota que va a saldo
 
   const $=id=>document.getElementById(id);

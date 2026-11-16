@@ -1,0 +1,119 @@
+{
+  "portada": {
+    "lema": "Llibreria · Cafeteria · Espai cultural",
+    "lloc": "Santa Margarida i els Monjos, Penedès"
+  },
+  "llibreria": {
+    "text": "Dona el sentit a l'espai: els **llibres** com a font de preguntes, de conversa i de gaudi compartit.",
+    "frase": "__Llegir pot esdevenir-se trobada.__",
+    "detall": "Narrativa, assaig, poesia, infantil i llibre de segona mà. Si no el tenim, te l'encarreguem."
+  },
+  "cafeteria": {
+    "text": "Una cafeteria que dona __temps__: un espai càlid on quedar-se, habitar la pausa i fer de la quotidianitat un lloc de recer i comunitat.",
+    "detall": "Cafè, esmorzars, berenars i vermut amb vins i productes del Penedès."
+  },
+  "cultura": {
+    "text": "Un espai que convida a aturar-se i a pensar: __la calma__, __la bellesa__ i __l'esperit crític__ com a punt de partida.",
+    "frase": "Un lloc on la cultura pren moltes **formes**.",
+    "detall": "Presentacions de llibres, clubs de lectura, vermuts literaris, tallers i música petita."
+  },
+  "paquet": {
+    "subtitol": "Per regalar o per autoregalar-te",
+    "titol": "El paquet lector",
+    "intro": "Una capsa per gaudir de la lectura amb calma. Dins hi trobaràs:",
+    "contingut": [
+      "**El llibre** que hagis escollit.",
+      "Una **tassa** per al cafè o el te, perquè en una lectura plàcida no hi pot faltar.",
+      "Una **espelma** per fer un bon ambient lector.",
+      "Un **segell exlibris** per marcar els llibres de la teva biblioteca personal.",
+      "Un **bloc de notes** per apuntar i marcar els passatges que més t'agradin."
+    ],
+    "nota": "Els complements van canviant segons la demanda, la campanya o el maridatge amb el llibre.",
+    "preu": ""
+  },
+  "carta": {
+    "proximament": true,
+    "subtitol": "Curta, de proximitat i feta amb calma.",
+    "seccions": [
+      {
+        "titol": "Cafès i infusions",
+        "productes": [
+          {
+            "nom": "Cafè sol",
+            "preu": ""
+          },
+          {
+            "nom": "Tallat",
+            "preu": ""
+          },
+          {
+            "nom": "Cafè amb llet",
+            "preu": ""
+          },
+          {
+            "nom": "Te i infusions",
+            "preu": ""
+          },
+          {
+            "nom": "Xocolata desfeta",
+            "preu": ""
+          }
+        ]
+      },
+      {
+        "titol": "L'hora del vermut",
+        "productes": [
+          {
+            "nom": "Vermut de la casa",
+            "preu": ""
+          },
+          {
+            "nom": "Copa de vi del Penedès",
+            "preu": ""
+          },
+          {
+            "nom": "Cava",
+            "preu": ""
+          },
+          {
+            "nom": "Olives i patates",
+            "preu": ""
+          },
+          {
+            "nom": "Gildes",
+            "preu": ""
+          }
+        ]
+      },
+      {
+        "titol": "Per picar",
+        "productes": [
+          {
+            "nom": "Coca del dia",
+            "preu": ""
+          },
+          {
+            "nom": "Pastís casolà",
+            "preu": ""
+          },
+          {
+            "nom": "Torrades",
+            "preu": ""
+          },
+          {
+            "nom": "Taula de formatges",
+            "preu": ""
+          }
+        ]
+      }
+    ]
+  },
+  "amics": {
+    "titol": "Fes-te Amic de Cal Gendre",
+    "text": "Una quota de 5, 10 o 20 € al mes: el 80 % es converteix en saldo per gastar en llibres i el 20 % dona suport a la llibreria. A més, un 5 % de descompte en llibres. El saldo no caduca mai."
+  },
+  "instagram": {
+    "titol": "Vols veure què ha passat a la llibreria?",
+    "text": "Presentacions, vermuts, novetats i el dia a dia de Cal Gendre, a Instagram."
+  }
+}

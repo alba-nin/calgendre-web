@@ -1,0 +1,29 @@
+# Comprova que els fitxers de contingut/ estan ben escrits cada vegada que algú els edita.
+# Si hi ha un error (una coma o una cometa que falta), el canvi surt amb una ✗ vermella a GitHub
+# i aquí s'explica a quina línia és.
+name: Comprova els textos
+on:
+  push:
+    paths: ["contingut/**"]
+  pull_request:
+    paths: ["contingut/**"]
+jobs:
+  json:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Comprova contingut/*.json
+        run: |
+          python3 - <<'PY'
+          import json, glob, sys
+          errors = 0
+          for f in sorted(glob.glob("contingut/*.json")):
+              try:
+                  json.load(open(f, encoding="utf-8"))
+                  print(f"✓ {f}")
+              except json.JSONDecodeError as e:
+                  errors += 1
+                  print(f"✗ {f}: error a la línia {e.lineno}, columna {e.colno}: {e.msg}")
+                  print("  Sol ser una coma o una cometa que falta just abans d'aquesta línia.")
+          sys.exit(1 if errors else 0)
+          PY
