@@ -296,10 +296,11 @@
      Les altes s'envien a un Formulari de Google (les respostes queden en un full de càlcul).
      Com obtenir aquests valors: GUIA-AMICS.md, pas 1.
      Mentre FORMULARI_GOOGLE estigui buit, el botó obre un correu amb les dades. */
-  const FORMULARI_GOOGLE = "";   // https://docs.google.com/forms/d/e/XXXXXXXX/formResponse
+  const FORMULARI_GOOGLE = "https://docs.google.com/forms/d/e/1FAIpQLSdE8SHKSJUpCoNWrEWQ8C4gFdJ6NGII1ybcUoiWw5BTnIxOnw/formResponse";
   const CAMPS = {                // identificadors "entry.123456" de cada pregunta del formulari de Google
-    quota:"", periode:"", nom:"", dni:"", tel:"", mail:"", adreca:"", cp:"", poblacio:"",
-    iban:"", titular:"", mandat:""
+    quota:"entry.2022699564", periode:"entry.1339059285", nom:"entry.466337664", dni:"entry.2141195840",
+    tel:"entry.2093436621", mail:"entry.509631132", adreca:"entry.1667885261", cp:"entry.1641226597",
+    poblacio:"entry.1539253137", iban:"entry.1737951905", titular:"entry.242574495", mandat:"entry.775322292"
   };
   let EMAIL = "llibreria@calgendre.cat";   // es llegeix de contingut/general.json
   CONTINGUT.then(CG=>{ if(CG.general&&CG.general.email) EMAIL=CG.general.email; });
