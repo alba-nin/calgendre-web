@@ -1,14 +1,15 @@
 # Amics de Cal Gendre · Guia de posada en marxa
 
-**Model:** quotes de **5, 10 o 20 €/mes** (pagament mensual, trimestral o anual) per **domiciliació bancària**.
+**Model:** quotes de **5, 10, 20 o 50 €/mes** (Lector/a, Devorador/a, Bibliòfil/a, Lletraferit/da) (pagament mensual, trimestral o anual) per **domiciliació bancària**.
 De cada quota, el **80 % és saldo** per gastar en **llibres** i el **20 % és suport** a la llibreria.
-**5 % de descompte en llibres.** El saldo **no caduca**, ni amb la baixa.
+**5 % de descompte en llibres.** A partir de 10 €/mes, **10 % de descompte en activitats**. El saldo **no caduca**, ni amb la baixa.
 
 | Quota | Saldo | Suport | Saldo l'any |
 |---|---|---|---|
 | 5 €/mes | 4 € | 1 € | 48 € |
 | 10 €/mes | 8 € | 2 € | 96 € |
 | 20 €/mes | 16 € | 4 € | 192 € |
+| 50 €/mes | 40 € | 10 € | 480 € |
 
 Com funciona:
 
@@ -83,7 +84,7 @@ const CAMPS = {
 ## 3. Saldo i descompte a la botiga (Galatea)
 
 Pregunta a Defontsoft:
-1. Com posar a la **fitxa de client** un **5 % de descompte només en llibres**.
+1. Com posar a la **fitxa de client** un **5 % de descompte només en llibres** (i, per a quotes de 10 € o més, un 10 % en activitats).
 2. Com portar un **saldo a compte** per client (val, moneder o similar) que es pugui fer servir com a forma de pagament.
 
 **Cada mes**, després que el banc hagi cobrat: suma el **80 %** de cada quota cobrada al saldo del client
