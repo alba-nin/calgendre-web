@@ -2,7 +2,7 @@
 
 **Model:** quotes de **5, 10, 20 o 50 €/mes** (Lector/a, Devorador/a, Bibliòfil/a, Lletraferit/da) (pagament mensual, trimestral o anual) per **domiciliació bancària**.
 De cada quota, el **80 % és saldo** per gastar en **llibres** i el **20 % és suport** a la llibreria.
-**5 % de descompte en llibres.** A partir de 10 €/mes, **10 % de descompte en activitats**. El saldo **no caduca**, ni amb la baixa.
+**5 % de descompte en llibres.** A partir de 10 €/mes, **10 % de descompte en activitats i en begudes al bar**. A partir de 20 €/mes, **una sorpresa anual**. Amb 50 €/mes, **un sopar literari a l'any**. El saldo **no caduca**, ni amb la baixa.
 
 | Quota | Saldo | Suport | Saldo l'any |
 |---|---|---|---|
@@ -84,7 +84,7 @@ const CAMPS = {
 ## 3. Saldo i descompte a la botiga (Galatea)
 
 Pregunta a Defontsoft:
-1. Com posar a la **fitxa de client** un **5 % de descompte només en llibres** (i, per a quotes de 10 € o més, un 10 % en activitats).
+1. Com posar a la **fitxa de client** un **5 % de descompte només en llibres** (i, per a quotes de 10 € o més, un 10 % en activitats i en begudes del bar).
 2. Com portar un **saldo a compte** per client (val, moneder o similar) que es pugui fer servir com a forma de pagament.
 
 **Cada mes**, després que el banc hagi cobrat: suma el **80 %** de cada quota cobrada al saldo del client
