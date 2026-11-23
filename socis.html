@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Amics de Cal Gendre · Cal Gendre 1879</title>
-<meta name="description" content="Fes-te Amic de Cal Gendre: amb una quota de 5, 10 o 20 € al mes, el 80 % es converteix en saldo per a llibres i el 20 % dona suport a la llibreria. A més, un 5 % de descompte en llibres.">
+<meta name="description" content="Fes-te Amic de Cal Gendre: amb una quota de 5, 10, 20 o 50 € al mes, el 80 % es converteix en saldo per a llibres i el 20 % dona suport a la llibreria. A més, un 5 % de descompte en llibres i, a partir de 10 €, un 10 % en activitats.">
 <link rel="icon" type="image/png" href="img/favicon.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -45,10 +45,11 @@
   .titol{font-size:clamp(38px,6vw,62px);color:var(--marro);text-transform:uppercase;text-align:center}
   .sub{text-align:center;font-style:italic;color:#6d4a2d;margin:8px auto 46px;max-width:620px}
 
-  .quotes{display:grid;grid-template-columns:repeat(3,1fr);gap:26px;align-items:stretch}
-  .quota{background:var(--paper);border-top:8px solid var(--marro);padding:34px 28px 30px;text-align:center;display:flex;flex-direction:column;box-shadow:0 8px 20px rgba(59,29,7,.08)}
+  .quotes{display:grid;grid-template-columns:repeat(4,1fr);gap:22px;align-items:stretch}
+  @media (max-width:1100px){ .quotes{grid-template-columns:repeat(2,1fr)} }
+  .quota{background:var(--paper);border-top:8px solid var(--marro);padding:32px 22px 28px;text-align:center;display:flex;flex-direction:column;box-shadow:0 8px 20px rgba(59,29,7,.08)}
   .quota h3{font-size:26px;color:var(--marro)}
-  .quota .preu{font-family:"Libre Caslon Display",serif;font-size:76px;line-height:1;color:var(--marro);margin:16px 0 4px}
+  .quota .preu{font-family:"Libre Caslon Display",serif;font-size:66px;line-height:1;color:var(--marro);margin:16px 0 4px}
   .quota .preu small{font-size:22px}
   
   .quota .any{font-style:italic;color:#6d4a2d}
@@ -140,16 +141,16 @@
 
 <section class="passos">
   <div class="wrap passos-grid">
-    <div class="pas"><b>1</b><h3>Tria la teva quota</h3><p>5, 10 o 20 € al mes, amb pagament mensual, trimestral o anual per domiciliació.</p></div>
+    <div class="pas"><b>1</b><h3>Tria la teva quota</h3><p>5, 10, 20 o 50 € al mes, amb pagament mensual, trimestral o anual per domiciliació.</p></div>
     <div class="pas"><b>2</b><h3>80 % per a tu, 20 % per a la llibreria</h3><p>El 80 % de cada quota se suma al teu saldo. El 20 % restant dona suport a Cal Gendre.</p></div>
-    <div class="pas"><b>3</b><h3>Gasta el saldo en llibres</h3><p>Quan vulguis i sense caducitat. I a més, un 5 % de descompte en tots els llibres.</p></div>
+    <div class="pas"><b>3</b><h3>Gasta el saldo en llibres</h3><p>Quan vulguis i sense caducitat. I a més, un 5 % de descompte en tots els llibres i, a partir de 10 €, un 10 % en activitats.</p></div>
   </div>
 </section>
 
 <section class="sec" id="quotes">
   <div class="wrap">
     <h2 class="titol">Tria la quota</h2>
-    <p class="sub">Tots els nivells tenen els mateixos avantatges: només canvia quant saldo acumules.</p>
+    <p class="sub">Tots els nivells tenen saldo per a llibres i un 5 % de descompte. A partir de 10 €, també un 10 % de descompte en les activitats.</p>
     <div class="quotes">
       <div class="quota" data-q="5">
         <h3>Lector/a</h3>
@@ -171,6 +172,7 @@
         <ul>
           <li>96 € l'any de saldo per a llibres</li>
           <li>5 % de descompte en llibres</li>
+          <li>10 % de descompte en activitats</li>
           <li>El saldo no caduca</li>
         </ul>
         <a class="tria" href="#alta" data-quota="10">Tria aquesta quota</a>
@@ -183,9 +185,23 @@
         <ul>
           <li>192 € l'any de saldo per a llibres</li>
           <li>5 % de descompte en llibres</li>
+          <li>10 % de descompte en activitats</li>
           <li>El saldo no caduca</li>
         </ul>
         <a class="tria" href="#alta" data-quota="20">Tria aquesta quota</a>
+      </div>
+      <div class="quota" data-q="50">
+        <h3>Lletraferit/da</h3>
+        <div class="preu">50 €<small>/mes</small></div>
+        <div class="repart"><div class="m">40 €</div><div class="s">10 €</div></div>
+        <div class="repart-llegenda">saldo · suport</div>
+        <ul>
+          <li>480 € l'any de saldo per a llibres</li>
+          <li>5 % de descompte en llibres</li>
+          <li>10 % de descompte en activitats</li>
+          <li>El saldo no caduca</li>
+        </ul>
+        <a class="tria" href="#alta" data-quota="50">Tria aquesta quota</a>
       </div>
     </div>
   </div>
@@ -203,6 +219,7 @@
           <label><input type="radio" name="quota" value="5"><span>5 €/mes</span></label>
           <label><input type="radio" name="quota" value="10"><span>10 €/mes</span></label>
           <label><input type="radio" name="quota" value="20"><span>20 €/mes</span></label>
+          <label><input type="radio" name="quota" value="50"><span>50 €/mes</span></label>
         </div>
         <p style="font-size:14px;margin:14px 0 8px">Com vols pagar-la?</p>
         <div class="opcions" role="radiogroup" aria-label="Periodicitat">
@@ -254,7 +271,7 @@
     <div class="form fet" id="fet">
       <h3>Benvingut/da!</h3>
       <p>Ja ets Amic/ga de Cal Gendre. Rebràs el primer càrrec al compte que ens has indicat, i el saldo l'anirem sumant a la teva fitxa de la llibreria.</p>
-      <p style="margin-top:12px">La propera vegada que vinguis, digues el teu nom i ja ho tindràs tot a punt.</p>
+      <p style="margin-top:12px">La propera vegada que vinguis, digues-nos el teu nom i ja ho tindràs tot a punt.</p>
     </div>
   </div>
 </section>
@@ -268,6 +285,7 @@
         <li>De cada quota cobrada, el <b>80 % se suma al teu saldo</b> a Cal Gendre i el <b>20 % és una aportació de suport</b> a la llibreria, que no genera saldo.</li>
         <li>El saldo es pot gastar en <b>llibres</b>, a la llibreria, quan vulguis i en tantes compres com vulguis.</li>
         <li>Mentre siguis Amic/ga de Cal Gendre, tens un <b>5 % de descompte en llibres</b>. No és acumulable amb altres descomptes en llibres, d'acord amb la llei del preu fix del llibre.</li>
+        <li>Amb les quotes de <b>10 €, 20 € i 50 €</b>, també tens un <b>10 % de descompte en les activitats</b> de Cal Gendre (tallers, cursos i activitats de pagament).</li>
         <li><b>El saldo no caduca</b>, ni tan sols si et dones de baixa: el que hagis acumulat continua sent teu.</li>
         <li>Et pots donar de baixa o canviar de quota quan vulguis, escrivint-nos a llibreria@calgendre.cat, per WhatsApp o a la llibreria. Si ens ho dius abans del dia 25, ja no et cobrarem la quota següent.</li>
         <li>Si un rebut es retorna per causes alienes a la llibreria, es descomptaran del saldo les despeses bancàries de la devolució.</li>
